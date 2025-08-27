@@ -339,6 +339,7 @@ function runTests(){
   t('search filter', ()=>{ const prev = Object.assign({}, state.filters); state.filters.q='Registration'; const res = filteredSessions(); if(!res.some(s=>/Registration/i.test(s.title))) throw Error('search failed'); state.filters = prev; });
   t('hidden session cannot be added', ()=>{ const hidden = SESSIONS.find(s=>s.regEnabled===false); if(!hidden) return; delete state.selected[hidden.id]; toggle(hidden.id); if(state.selected[hidden.id]) throw Error('hidden session was added'); });
 }
+})();
 </script>
 </body>
 </html>
