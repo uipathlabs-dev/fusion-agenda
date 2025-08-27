@@ -1,0 +1,166 @@
+name: Process Excel to JSON
+
+# Trigger when Excel file in data/ folder is updated
+on:
+  push:
+    paths:
+      - 'data/*.xlsx'
+      - 'data/*.xls'
+  workflow_dispatch:
+
+jobs:
+  convert-excel:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        npm init -y
+        npm install xlsx@https://cdn.sheetjs.com/xlsx-latest/xlsx-latest.tgz
+        
+    - name: Convert Excel to JSON
+      run: |
+        node -e "
+        const XLSX = require('xlsx');
+        const fs = require('fs');
+        const path = require('path');
+        
+        // Find Excel files in data directory
+        const dataDir = './data';
+        const files = fs.readdirSync(dataDir).filter(f => f.match(/\.(xlsx?|xls)$/i));
+        
+        if (files.length === 0) {
+          console.log('No Excel files found in data directory');
+          process.exit(0);
+        }
+        
+        // Use the first Excel file found
+        const excelFile = path.join(dataDir, files[0]);
+        console.log('Processing:', excelFile);
+        
+        try {
+          // Read the Excel file
+          const workbook = XLSX.readFile(excelFile);
+          const sheetName = workbook.SheetNames[0];
+          const worksheet = workbook.Sheets[sheetName];
+          
+          // Convert to JSON
+          const rawData = XLSX.utils.sheet_to_json(worksheet);
+          console.log('Found', rawData.length, 'rows in Excel file');
+          
+          // Transform data to expected format
+          const sessions = rawData.map((row, index) => {
+            // Generate a unique ID if not provided
+            const id = row.ID || row.Id || generateId();
+            
+            // Map common column variations to standard fields
+            const title = row.Title || row.title || row.SESSION || row.Session || 'Untitled Session';
+            const track = row.Track || row.track || row.TRACK || 'General';
+            const day = row.Day || row.day || row.DATE || row.Date || row.date || '';
+            const start = row.Start || row.start || row.START || row['Start Time'] || row['start_time'] || '';
+            const end = row.End || row.end || row.END || row['End Time'] || row['end_time'] || '';
+            const room = row.Room || row.room || row.ROOM || row.Location || row.location || '—';
+            const speaker = row.Speaker || row.speaker || row.SPEAKER || row.Presenter || row.presenter || '—';
+            const level = row.Level || row.level || row.LEVEL || 'All';
+            const description = row.Description || row.description || row.DESCRIPTION || row.Abstract || row.abstract || '';
+            
+            // Format dates if needed (convert Excel date serials)
+            const formatDate = (dateValue) => {
+              if (!dateValue) return '';
+              
+              // If it's already a proper ISO date string, use it
+              if (typeof dateValue === 'string' && dateValue.includes('T')) {
+                return dateValue;
+              }
+              
+              // If it's a date object or Excel date serial
+              let dateObj;
+              if (typeof dateValue === 'number') {
+                // Excel date serial number (days since 1900-01-01)
+                dateObj = XLSX.SSF.parse_date_code(dateValue);
+                if (dateObj) {
+                  dateObj = new Date(dateObj.y, dateObj.m - 1, dateObj.d, dateObj.H || 0, dateObj.M || 0, dateObj.S || 0);
+                }
+              } else if (dateValue instanceof Date) {
+                dateObj = dateValue;
+              } else if (typeof dateValue === 'string') {
+                dateObj = new Date(dateValue);
+              }
+              
+              if (dateObj && !isNaN(dateObj.getTime())) {
+                // Format as ISO string with Pacific timezone offset
+                return dateObj.toISOString().replace('Z', '-07:00');
+              }
+              
+              return dateValue.toString();
+            };
+            
+            return {
+              id,
+              title,
+              track,
+              day: formatDate(day).split('T')[0], // Just the date part
+              start: formatDate(start),
+              end: formatDate(end),
+              room,
+              speaker,
+              level,
+              description,
+              regEnabled: row.Enabled !== false && row.enabled !== false // default to true unless explicitly false
+            };
+          });
+          
+          // Filter out invalid sessions (must have title and day)
+          const validSessions = sessions.filter(s => s.title && s.day);
+          console.log('Processed', validSessions.length, 'valid sessions');
+          
+          // Create the output JSON
+          const output = {
+            metadata: {
+              generatedAt: new Date().toISOString(),
+              source: path.basename(excelFile),
+              totalSessions: validSessions.length
+            },
+            sessions: validSessions
+          };
+          
+          // Write to agenda.json
+          fs.writeFileSync('./agenda.json', JSON.stringify(output, null, 2));
+          console.log('Generated agenda.json successfully');
+          
+        } catch (error) {
+          console.error('Error processing Excel file:', error);
+          process.exit(1);
+        }
+        
+        // Helper function to generate unique IDs
+        function generateId() {
+          return Math.random().toString(36).substr(2, 13);
+        }
+        "
+        
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add agenda.json
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Auto-update agenda.json from Excel data
+          
+          🤖 Generated from: $(ls data/*.xlsx data/*.xls 2>/dev/null | head -1 | xargs basename)
+          📅 Generated at: $(date -u +'%Y-%m-%d %H:%M:%S UTC')
+          "
+          git push
+        fi

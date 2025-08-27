@@ -1,0 +1,23 @@
+# Node.js dependencies (used by GitHub Actions)
+node_modules/
+package.json
+package-lock.json
+
+# Temporary files
+*.tmp
+*.temp
+~$*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Old/backup files
+uipath-agenda-builder/
+*.bak
+*.backup
