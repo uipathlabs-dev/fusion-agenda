@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UiPath Agenda Builder — Offline PDF MVP</title>
+  <!-- Zero network access: no external fonts or scripts -->
+  <style>
+    :root{ --deep-blue:#182126; --white:#FFFFFF; --orange:#FA4616; --teal:#0BA2B3; --deep-blue-2:#2D373C; --muted:#A0AAB9; --pill-bg:#3C464B; }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--deep-blue);color:var(--white);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    .wrap{max-width:1120px;margin:0 auto;padding:28px}
+    h1{font-weight:800;letter-spacing:-0.02em;margin:0}
+    .subtitle{color:var(--muted);margin-top:6px}
+    .toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    input,select,button{background:var(--deep-blue-2);color:var(--white);border:1px solid #233038;border-radius:12px;padding:10px 12px}
+    .btn{border:none;cursor:pointer;font-weight:700;letter-spacing:-0.015em;border-radius:12px;padding:10px 14px}
+    .btn-primary{background:var(--orange);color:var(--white)}
+    .btn-quiet{background:#233038;color:var(--white);border:1px solid #2a3a43}
+    .controls{display:grid;grid-template-columns:1.2fr .8fr .8fr .8fr 1fr;gap:10px;margin-top:16px}
+    @media (max-width:900px){.controls{grid-template-columns:1fr 1fr}}
+    .grid{display:grid;grid-template-columns:2fr 1.1fr;gap:16px;margin-top:16px}
+    @media (max-width:1000px){.grid{grid-template-columns:1fr}}
+    .card{background:#0f171b;border:1px solid #1b262d;border-radius:16px;padding:12px}
+    .list{list-style:none;margin:0;padding:0}
+    .item{padding:12px 0;border-top:1px solid #1b262d}
+    .item:first-child{border-top:none}
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--pill-bg);color:var(--white);font-size:12px;margin-left:6px}
+    .pill.orange{background:var(--orange)}
+    .day-sep{margin:8px 0 2px;padding:6px 10px;border-left:4px solid var(--orange);
+      background:linear-gradient(90deg, rgba(250,70,22,0.08), rgba(11,162,179,0.06));
+      border-radius:10px 12px 12px 10px;font-weight:800;color:var(--white);position:sticky;top:0;z-index:3}
+    .error{display:none;margin-top:10px;background:#2a1316;color:#ffd7d7;border:1px solid #4a1d22;padding:8px 10px;border-radius:10px}
+    .footer{margin-top:10px;color:var(--muted);font-size:12px}
+    .item.is-disabled{opacity:.55}
+    .highlight{box-shadow:0 0 0 3px rgba(250,70,22,.6) inset;border-radius:8px}
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:50}
+    .modal-card{background:#0f171b;border:1px solid #1b262d;border-radius:16px;padding:16px;width:min(480px,92vw);color:var(--white)}
+    .modal-title{font-weight:800;margin-bottom:8px}
+    .modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Agenda Builder — Offline PDF MVP (UiPath)</h1>
+    <div id="who" class="subtitle">Add a customer name (appears on PDF)</div>
+
+    <div class="toolbar">
+      <input id="customer" placeholder="Customer name"/>
+      <input id="notes" placeholder="AE notes (for PDF header)"/>
+      <button id="print" class="btn btn-primary">Export PDF</button>
+      <button id="printOptions" class="btn btn-quiet">Print options</button>
+    </div>
+
+    <div class="controls">
+      <input id="q" placeholder="Search title, speaker, room"/>
+      <select id="track"></select>
+      <select id="day"></select>
+      <select id="level"></select>
+      <input id="dummy" disabled placeholder="PDF-only build"/>
+    </div>
+
+    <div id="error" class="error"></div>
+
+    <div class="grid">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div style="font-weight:800">Sessions</div>
+          <div class="muted" id="shownCount"></div>
+        </div>
+        <ul id="sessions" class="list"></ul>
+      </div>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+          <div style="font-weight:800">My agenda</div>
+        </div>
+        <ul id="selected" class="list" style="margin-top:6px"></ul>
+        <div style="display:flex;gap:12px;margin-top:8px">
+          <div class="muted">Total sessions: <span id="totalSessions">0</span></div>
+          <div class="muted">Total time: <span id="totalMinutes">0</span> min</div>
+        </div>
+        <div class="footer">Based on the official Fusion agenda (Pacific time).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Print options -->
+  <div id="printModal" class="modal">
+    <div class="modal-card">
+      <div class="modal-title">Print options</div>
+      <label><input type="checkbox" id="optSpeakers" checked> Include speakers</label><br/>
+      <label><input type="checkbox" id="optRooms" checked> Include rooms</label><br/>
+      <label><input type="checkbox" id="optDescriptions" checked> Include descriptions</label><br/>
+      <label><input type="checkbox" id="optTags" checked> Include tags</label><br/>
+      <label><input type="checkbox" id="optCompact"> Compact mode</label>
+      <div class="modal-actions">
+        <button id="printGo" class="btn btn-primary">Print</button>
+        <button id="printCancel" class="btn btn-quiet">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+((() => {
+/*********************** Data (Pacific time) ***************************/
+// Embedded UiPath logo as data URL (local, no network)
+const LOGO_DATAURL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAa4AAACMCAYAAAAk5k0TAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAGYktHRAAAAAAAACQ7s9/3AAAAB3RJTUUH5gYcEhoBgK8WKgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAgYSURBVHja7d15bBxXFcfxx0I4O2Y1bW1f+gYQKqk0Cwq0rKJWV0hB1wQ1y3xokgRGzv1TQ4E0EwqWBEt5iQ7s2c5shy7nJc2Yf2eMhj1o6o1b00qk7uqu+2R8J9b7Q3GUBA1P7tU1c8b1s7m2j3H6Rz3L5b7Yk7x3uHk0kAAAAAAAB4QyHcZ0D8kz3wQAAAB+8z+gQAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAABgU6v3f1h1q8zj7d0v0h2n3N+q1Z5p6uZ2T2Qm7Vd9h2v5kq6o9VQ1W8Uj9Qt7z3rH5+z0x4Y2M1VQf1uQ4w7Tz8W5cQ2Jp2z0m1z8i3p2Jm4dBfKqkq9pGg1dKzv2B/8nPz3c1s7F8Wkqk8XbrN9nYc1eE/3H6t2yXU2d1b6Y7Bz3w+v4t3O4ls8Z0o1I8mJ1p5Zq2c9qz2N0r2G6Q8iQAAAPj7v2Xl2vN7T9Jm8J0tAABg8qzJf5nQXsncS3a7H3q7fUo6p3Ztq7eN3fF8i6L2Wc8mtt8x9d9qjQ0Y9Tz3bQAAANt8r5nZ5zq1n1nq8I0kAAAAYC6o3UoN9l1uk3nI7VZ3eY7Vb4O5p1o7vH0t8c2v4m9m3kQAAALDk2h1g7x9f6nG0QwAAAEiAAQAAAPgGBAAAAPgGBAAAAPgGBAAAAPgGBAAAAPgGBABwqU5Y8i1j6L8+0p3t2V8YlVqU7Sx9l2a7Yb1w+eY4K2VZ8a5h9J5w8bJm2H2t9bY5xk2v8v8QwAAABbLR5b0w9k9vXy4n3sQ2K9n+2g0zv0c7x5f3f3i7c0AAAAr9k9m2o3+z8mHAAAAFifcR4AAAD4BkQAAAD4BkQAAAD4BkQAAAD4BkQAAAD4BgQAAAAAAABg0s0dYF7H2r8v1q5fGJZcN2wXg4o4J7e3A1iQq7w3yP5+eJrQ5Vb3xJfU1u7B6YwAAgGzZg8s1L5rH2J0t55wHAAAA8E0EAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAALg0bXlQq8cHh+fHok7AAAA8G6zvAAAAABgKf8+Y2F8l3JbWlIAAACXoQAAAAD4BkQAAAD4BkQAAAD4BkQAAAD4BkQAAAD4BgQAAAAAAABg/Ab2lq2r1m+7+2o3AAAAuB2kAAAAAOB/SAQAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAAE5m6b5Y3g2AAAAAAABJRU5ErkJggg==';
+
+// Global sessions data - will be loaded from JSON
+let SESSIONS = [];
+let isDataLoaded = false;
+
+/*********************** Data Loading *************************/
+// Function to load agenda data from JSON file
+async function loadAgendaData() {
+  try {
+    const response = await fetch('./agenda.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    SESSIONS = data.sessions || [];
+    isDataLoaded = true;
+    return true;
+  } catch (error) {
+    console.error('Failed to load agenda data:', error);
+    // Show loading error in UI
+    showError('Failed to load agenda data. Please refresh the page.');
+    return false;
+  }
+}
+
+// Function to generate unique IDs for sessions that don't have them
+function generateId() {
+  return Math.random().toString(36).substr(2, 13);
+}
+
+// Ensure all sessions have required fields and IDs
+function validateSessions() {
+  SESSIONS = SESSIONS.map(session => ({
+    ...session,
+    id: session.id || generateId(),
+    room: session.room || '—',
+    speaker: session.speaker || '—',
+    level: session.level || 'All',
+    description: session.description || '',
+    regEnabled: session.regEnabled !== false // default to true unless explicitly false
+  }));
+}
+/************************* State & helpers *************************/
+const state = { customer: "", notes: "", selected: {}, filters: { q:"", track:"", day:"", level:"" } };
+const $ = (id) => document.getElementById(id);
+const els = { sessions: $("sessions"), selected: $("selected"), shownCount: $("shownCount"), who: $("who"), error: $("error") };
+const unique = (list) => Array.from(new Set(list)).filter(Boolean);
+const fmtDate   = (d) => new Date(d).toLocaleDateString("en-US", { timeZone:"America/Los_Angeles", weekday:"long", month:"short", day:"numeric" });
+const fmtDateShort = (d) => new Date(d).toLocaleDateString("en-US", { timeZone:"America/Los_Angeles", month:"short", day:"numeric" });
+const fmtTime   = (iso) => new Date(iso).toLocaleTimeString("en-US", { hour:"2-digit", minute:"2-digit", timeZone:"America/Los_Angeles" });
+function showError(msg){ els.error.textContent = msg; els.error.style.display='block'; clearTimeout(showError._t); showError._t=setTimeout(()=>els.error.style.display='none', 2400); }
+function groupByDay(arr){
+  const m=new Map(); arr.forEach((s)=>{ if(!m.has(s.day)) m.set(s.day,[]); m.get(s.day).push(s); });
+  return Array.from(m.entries())
+    .sort((a,b)=>+new Date(a[0]) - +new Date(b[0]))
+    .map(([day,items])=>({ day, items: items.sort((a,b)=> +new Date(a.start) - +new Date(b.start)) }));
+}
+function filteredSessions(){
+  const {q,track,day,level} = state.filters;
+  return SESSIONS
+    .filter(s=>!track || s.track===track)
+    .filter(s=>!day || s.day===day)
+    .filter(s=>!level || s.level===level)
+    .filter(s=>!q || (s.title+' '+(s.description||'')+' '+(s.speaker||'')+' '+(s.room||'')).toLowerCase().includes(q.toLowerCase()))
+    .sort((a,b)=>+new Date(a.start)-+new Date(b.start));
+}
+const selectedList = ()=> Object.keys(state.selected).map(id=> SESSIONS.find(s=>s.id===id)).filter(Boolean);
+
+/*********************** Rendering ************************/
+function renderFilters(){
+  const tracks  = [""] .concat(unique(SESSIONS.map(s=>s.track)));
+  const days    = [""] .concat(unique(SESSIONS.map(s=>s.day)));
+  const levels  = [""] .concat(unique(SESSIONS.map(s=>s.level)));
+  $("track").innerHTML = tracks.map(v=>`<option value="${v}">${v||'All tracks'}</option>`).join("");
+  $("day").innerHTML   = days.map(v=>`<option value="${v}">${v?fmtDateShort(v):'All days'}</option>`).join("");
+  $("level").innerHTML = levels.map(v=>`<option value="${v}">${v||'All levels'}</option>`).join("");
+}
+function drawSessions(){
+  const groups = groupByDay(filteredSessions());
+  els.shownCount.textContent = `${groups.reduce((n,g)=>n+g.items.length,0)} shown`;
+  els.sessions.innerHTML = groups.map(g=>{
+    const header = `<div class="day-sep">${fmtDate(g.day)}</div>`;
+    const rows = g.items.map(s=>{
+      const active = !!state.selected[s.id];
+      const levelPill = s.level ? `<span class=\"pill\">${s.level}</span>` : '';
+      const roomPill  = s.room ? `<span class=\"pill\">${s.room}</span>` : '';
+      const regPill   = s.regEnabled===false ? '<span class="pill" style="background:#6b1f1f">Hidden</span>' : '';
+      return `<li id="s-${s.id}" class="item ${s.regEnabled===false?'is-disabled':''}">
+        <div style="display:flex;gap:8px;align-items:flex-start">
+          <input type="checkbox" ${active?'checked':''} ${s.regEnabled===false?'disabled title="Hidden (not selectable)"':''} onclick="toggle('${s.id}')"/>
+          <div style="flex:1">
+            <div class="muted">${fmtTime(s.start)} – ${fmtTime(s.end)} <span class="pill orange">${s.track}</span> ${levelPill} ${roomPill} ${regPill}</div>
+            <div style="font-weight:800">${s.title}</div>
+            ${s.speaker? `<div class="muted">${s.speaker}</div>`: ''}
+            ${s.description? `<div>${s.description}</div>`: ''}
+          </div>
+        </div>
+      </li>`;
+    }).join("");
+    return header + `<ul class="list">${rows}</ul>`;
+  }).join("");
+}
+function drawSelected(){
+  const groups = groupByDay(selectedList());
+  $("totalSessions").textContent = groups.reduce((n,g)=>n+g.items.length,0);
+  const minutes = groups.reduce((m,g)=> m + g.items.reduce((mi,s)=> mi + (+new Date(s.end) - +new Date(s.start))/60000, 0), 0);
+  $("totalMinutes").textContent = Math.round(minutes);
+  els.selected.innerHTML = groups.map(g=>{
+    const head = `<div class="day-sep">${fmtDate(g.day)}</div>`;
+    const rows = g.items.map(s=>`<li class="item"><div class="muted">${fmtTime(s.start)} – ${fmtTime(s.end)}</div><div style="display:flex;gap:8px;align-items:flex-start"><div style="flex:1"><div style="font-weight:800">${s.title}</div>${s.room?`<div class=\"muted\">${s.room}</div>`:''}</div><button class="btn btn-quiet" onclick="toggle('${s.id}')">Remove</button></div></li>`).join("");
+    return head + `<ul class="list">${rows}</ul>`;
+  }).join("");
+}
+function draw(){
+  $("customer").value = state.customer; $("notes").value = state.notes;
+  els.who.textContent = state.customer ? `For ${state.customer}` : 'Add a customer name (appears on PDF)';
+  drawSessions(); drawSelected();
+}
+function toggle(id){
+  const s = SESSIONS.find(x=>x.id===id); if(!s) return;
+  if(state.selected[id]){ delete state.selected[id]; draw(); return; }
+  if(s.regEnabled===false){ showError('This session is hidden and cannot be added'); return; }
+  state.selected[id] = true; draw();
+}
+window.toggle = toggle;
+
+/*********************** Events ************************/
+async function init(){
+  // Show loading message
+  els.sessions.innerHTML = '<div class="item">Loading agenda data...</div>';
+  
+  // Load agenda data
+  const loaded = await loadAgendaData();
+  
+  if (loaded) {
+    validateSessions();
+    renderFilters();
+    
+    // Set up event listeners
+    $("q").addEventListener('input', e=>{ state.filters.q=e.target.value; draw(); });
+    $("track").addEventListener('change', e=>{ state.filters.track=e.target.value; draw(); });
+    $("day").addEventListener('change', e=>{ state.filters.day=e.target.value; draw(); });
+    $("level").addEventListener('change', e=>{ state.filters.level=e.target.value; draw(); });
+    $("customer").addEventListener('input', e=>{ state.customer=e.target.value; draw(); });
+    $("notes").addEventListener('input', e=>{ state.notes=e.target.value; draw(); });
+    $("printOptions").addEventListener('click', ()=>{ $("printModal").style.display='flex'; });
+    $("printCancel").addEventListener('click', ()=>{ $("printModal").style.display='none'; });
+    $("print").addEventListener('click', ()=>{ $("printGo").click(); });
+    $("printGo").addEventListener('click', ()=>{
+      const o = {
+        includeSpeakers: $("optSpeakers").checked,
+        includeRooms: $("optRooms").checked,
+        includeDescriptions: $("optDescriptions").checked,
+        includeTags: $("optTags").checked,
+        compact: $("optCompact").checked
+      };
+      const items = groupByDay(selectedList()).map(g=>{
+        const rows = g.items.map(s=>{
+          const speaker = o.includeSpeakers && s.speaker ? `<div class="muted">${s.speaker}</div>` : '';
+          const room    = o.includeRooms && s.room ? `<div class="muted">${s.room}</div>` : '';
+          const desc    = o.includeDescriptions && s.description ? `<div>${s.description}</div>` : '';
+          const tags    = o.includeTags ? [s.track, s.level].filter(Boolean).join(' • ') : '';
+          const tagLine = tags ? `<div class="muted">${tags}</div>` : '';
+          return `<li${o.compact?' style="padding:4px 0"':''}><div class="muted">${fmtTime(s.start)} – ${fmtTime(s.end)}</div><div><strong>${s.title}</strong></div>${tagLine}${speaker}${room}${desc}</li>`;
+        }).join('');
+        return `<div class="day-h"><strong>${fmtDate(g.day)}</strong></div><ul>${rows}</ul>`;
+      }).join('');
+      const notesLine = state.notes ? `<div class="muted">Notes: ${state.notes}</div>` : '';
+      const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Agenda — ${state.customer||''}</title><style>
+  :root{ --orange:#FA4616; --teal:#0BA2B3; --ink:#111111; --muted:#555; --rule:#e7eaee; }
+  @page{ margin:18mm; }
+  *{box-sizing:border-box}
+  body{font:14px/1.45 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#fff}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  h1{font-size:22px;margin:0 0 4px 0;letter-spacing:-.01em}
+  .subtitle{color:var(--muted);font-size:12px;margin-top:2px}
+  .brand-rule{height:6px;background:linear-gradient(90deg,var(--orange) 0%, var(--orange) 52%, var(--teal) 52%, var(--teal) 100%);border-radius:3px;margin:10px 0 18px}
+  ul{padding:0;list-style:none;margin:0}
+  li{padding:8px 0;border-top:1px solid var(--rule)}
+  li:first-child{border-top:0}
+  .muted{color:var(--muted)}
+  .day{page-break-inside:avoid;margin-bottom:14px}
+  .day-h{margin:10px 0 6px;padding:8px 12px;border-left:5px solid var(--orange);background:linear-gradient(90deg, rgba(250,70,22,.10), rgba(11,162,179,.06));border-radius:10px 12px 12px 10px;font-weight:800}
+  .tags{color:var(--muted);margin-top:2px}
+  .logo{width:180px;text-align:right}
+  .logo img{display:block;height:36px;margin-left:auto}
+  .notes{margin:4px 0 0 0}
+</style></head><body>
+  <header>
+    <div>
+      <h1>UiPath FUSION — Agenda for ${state.customer||'Customer'}</h1>
+      ${notesLine?`<div class="subtitle notes">${notesLine.replace('<div class="muted">','').replace('</div>','')}</div>`:''}
+    </div>
+    <div class="logo"><img src="${LOGO_DATAURL}" alt="UiPath logo"/></div>
+  </header>
+  <div class="brand-rule"></div>
+  ${items}
+  <footer class="subtitle" style="margin-top:18px">Based on the official Fusion agenda (Pacific Time). Generated from the UiPath Agenda Builder.</footer>
+</body></html>`;
+      const w = window.open('', '_blank'); w.document.write(html); w.document.close(); w.focus(); w.print();
+      $("printModal").style.display='none';
+    });
+    
+    draw();
+  } else {
+    // Show error state
+    els.sessions.innerHTML = '<div class="item">Failed to load agenda data. Please refresh the page.</div>';
+  }
+}
+window.addEventListener('DOMContentLoaded', init);
+
+/*********************** Minimal sanity tests ************************/
+(function tests(){
+  const ul=document.createElement('ul'); ul.className='list'; document.body.appendChild(ul);
+  const ok = (n)=>{ const li=document.createElement('li'); li.textContent='pass — '+n; li.className='item'; li.style.color='#62d96b'; ul.appendChild(li); };
+  const fail=(n,e)=>{ const li=document.createElement('li'); li.textContent='fail — '+n+' — '+(e.message||e); li.className='item'; li.style.color='#ff6b6b'; ul.appendChild(li); };
+  function t(n,fn){ try{ fn(); ok(n);}catch(e){ fail(n,e);} }
+  t('groupByDay sorts', ()=>{ const g=groupByDay([{day:'2025-10-02',start:'2025-10-02T01:00:00-07:00',end:'2025-10-02T02:00:00-07:00'},{day:'2025-09-29',start:'2025-09-29T01:00:00-07:00',end:'2025-09-29T02:00:00-07:00'}]); if(g[0].day!=='2025-09-29') throw Error('wrong order'); });
+  t('toggle add/remove', ()=>{ const id = SESSIONS[0].id; delete state.selected[id]; toggle(id); if(!state.selected[id]) throw Error('did not select'); toggle(id); if(state.selected[id]) throw Error('did not remove'); });
+  t('search filter', ()=>{ const prev = Object.assign({}, state.filters); state.filters.q='Registration'; const res = filteredSessions(); if(!res.some(s=>/Registration/i.test(s.title))) throw Error('search failed'); state.filters = prev; });
+  t('hidden session cannot be added', ()=>{ const hidden = SESSIONS.find(s=>s.regEnabled===false); if(!hidden) return; delete state.selected[hidden.id]; toggle(hidden.id); if(state.selected[hidden.id]) throw Error('hidden session was added'); });
+})();
+})();
+</script>
+</body>
+</html>
