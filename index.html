@@ -151,7 +151,7 @@ function validateSessions() {
 /************************* State & helpers *************************/
 const state = { customer: "", notes: "", selected: {}, filters: { q:"", track:"", day:"", level:"" } };
 const $ = (id) => document.getElementById(id);
-const els = { sessions: $("sessions"), selected: $("selected"), shownCount: $("shownCount"), who: $("who"), error: $("error") };
+let els; // Will be initialized in init() when DOM is ready
 const unique = (list) => Array.from(new Set(list)).filter(Boolean);
 const fmtDate   = (d) => new Date(d).toLocaleDateString("en-US", { timeZone:"America/Los_Angeles", weekday:"long", month:"short", day:"numeric" });
 const fmtDateShort = (d) => new Date(d).toLocaleDateString("en-US", { timeZone:"America/Los_Angeles", month:"short", day:"numeric" });
@@ -234,6 +234,9 @@ window.toggle = toggle;
 
 /*********************** Events ************************/
 async function init(){
+  // Initialize DOM elements
+  els = { sessions: $("sessions"), selected: $("selected"), shownCount: $("shownCount"), who: $("who"), error: $("error") };
+  
   // Show loading message
   els.sessions.innerHTML = '<div class="item">Loading agenda data...</div>';
   
