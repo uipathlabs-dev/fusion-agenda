@@ -60,50 +60,38 @@ jobs:
           
           // Transform data to expected format
           const sessions = rawData.map((row, index) => {
-            // Generate a unique ID if not provided
-            const id = row.ID || row.Id || generateId();
+            // Map specific Excel column names to standard fields
+            const id = row['Unique ID'] || row.ID || row.Id || generateId();
+            const title = row['Session Title*'] || row['Session Title'] || row.Title || row.SESSION || 'Untitled Session';
+            const track = row['1st Filter Name'] || row.Track || row.TRACK || 'General';
+            const startDateTime = row['Start Date & Time\nMM/DD/YYYY 12H'] || row['Start Date & Time'] || row.Start || '';
+            const endDateTime = row['End Date & Time\nMM/DD/YYYY 12H'] || row['End Date & Time'] || row.End || '';
+            const room = row['Sessions Main Location'] || row.Room || row.Location || '—';
+            const speaker = row['(Email, Session-Role)'] || row.Speaker || row.Presenter || '—';
+            const level = row['2nd Filter Name'] || row.Level || 'All';
+            const description = row['Description'] || row.DESCRIPTION || '';
             
-            // Map common column variations to standard fields
-            const title = row.Title || row.title || row.SESSION || row.Session || 'Untitled Session';
-            const track = row.Track || row.track || row.TRACK || 'General';
-            const day = row.Day || row.day || row.DATE || row.Date || row.date || '';
-            const start = row.Start || row.start || row.START || row['Start Time'] || row['start_time'] || '';
-            const end = row.End || row.end || row.END || row['End Time'] || row['end_time'] || '';
-            const room = row.Room || row.room || row.ROOM || row.Location || row.location || '—';
-            const speaker = row.Speaker || row.speaker || row.SPEAKER || row.Presenter || row.presenter || '—';
-            const level = row.Level || row.level || row.LEVEL || 'All';
-            const description = row.Description || row.description || row.DESCRIPTION || row.Abstract || row.abstract || '';
+            // Extract day from start datetime
+            let day = '';
+            let start = '';
+            let end = '';
             
-            // Format dates if needed (convert Excel date serials)
-            const formatDate = (dateValue) => {
-              if (!dateValue) return '';
-              
-              // If it's already a proper ISO date string, use it
-              if (typeof dateValue === 'string' && dateValue.includes('T')) {
-                return dateValue;
+            if (startDateTime) {
+              // Parse MM/DD/YYYY format datetime
+              const startDate = new Date(startDateTime);
+              if (!isNaN(startDate.getTime())) {
+                day = startDate.toISOString().split('T')[0]; // YYYY-MM-DD format
+                start = startDate.toISOString().replace('Z', '-07:00'); // Pacific time
               }
-              
-              // If it's a date object or Excel date serial
-              let dateObj;
-              if (typeof dateValue === 'number') {
-                // Excel date serial number (days since 1900-01-01)
-                dateObj = XLSX.SSF.parse_date_code(dateValue);
-                if (dateObj) {
-                  dateObj = new Date(dateObj.y, dateObj.m - 1, dateObj.d, dateObj.H || 0, dateObj.M || 0, dateObj.S || 0);
-                }
-              } else if (dateValue instanceof Date) {
-                dateObj = dateValue;
-              } else if (typeof dateValue === 'string') {
-                dateObj = new Date(dateValue);
+            }
+            
+            if (endDateTime) {
+              const endDate = new Date(endDateTime);
+              if (!isNaN(endDate.getTime())) {
+                end = endDate.toISOString().replace('Z', '-07:00'); // Pacific time
               }
-              
-              if (dateObj && !isNaN(dateObj.getTime())) {
-                // Format as ISO string with Pacific timezone offset
-                return dateObj.toISOString().replace('Z', '-07:00');
-              }
-              
-              return dateValue.toString();
-            };
+            }
+            
             
             // Handle regEnabled field - check multiple possible column names
             let regEnabled = true; // default to enabled
@@ -124,9 +112,9 @@ jobs:
               id,
               title,
               track,
-              day: formatDate(day).split('T')[0], // Just the date part
-              start: formatDate(start),
-              end: formatDate(end),
+              day, // Already in YYYY-MM-DD format
+              start,
+              end,
               room,
               speaker,
               level,
