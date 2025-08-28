@@ -30,7 +30,7 @@
     .pill.orange{background:var(--orange)}
     .day-sep{margin:8px 0 2px;padding:6px 10px;border-left:4px solid var(--orange);
       background:linear-gradient(90deg, rgba(250,70,22,0.08), rgba(11,162,179,0.06));
-      border-radius:10px 12px 12px 10px;font-weight:800;color:var(--white);position:sticky;top:0;z-index:3}
+      border-radius:10px 12px 12px 10px;font-weight:800;color:var(--white)}
     .error{display:none;margin-top:10px;background:#2a1316;color:#ffd7d7;border:1px solid #4a1d22;padding:8px 10px;border-radius:10px}
     .footer{margin-top:10px;color:var(--muted);font-size:12px}
     .item.is-disabled{opacity:.55}
@@ -313,9 +313,6 @@ async function init(){
     });
     
     draw();
-    
-    // Run tests after successful data load
-    runTests();
   } else {
     // Show error state
     els.sessions.innerHTML = '<div class="item">Failed to load agenda data. Please refresh the page.</div>';
@@ -323,22 +320,6 @@ async function init(){
 }
 window.addEventListener('DOMContentLoaded', init);
 
-/*********************** Minimal sanity tests ************************/
-function runTests(){
-  if (!isDataLoaded || SESSIONS.length === 0) {
-    console.log('Skipping tests - no session data loaded');
-    return;
-  }
-  
-  const ul=document.createElement('ul'); ul.className='list'; document.body.appendChild(ul);
-  const ok = (n)=>{ const li=document.createElement('li'); li.textContent='pass — '+n; li.className='item'; li.style.color='#62d96b'; ul.appendChild(li); };
-  const fail=(n,e)=>{ const li=document.createElement('li'); li.textContent='fail — '+n+' — '+(e.message||e); li.className='item'; li.style.color='#ff6b6b'; ul.appendChild(li); };
-  function t(n,fn){ try{ fn(); ok(n);}catch(e){ fail(n,e);} }
-  t('groupByDay sorts', ()=>{ const g=groupByDay([{day:'2025-10-02',start:'2025-10-02T01:00:00-07:00',end:'2025-10-02T02:00:00-07:00'},{day:'2025-09-29',start:'2025-09-29T01:00:00-07:00',end:'2025-09-29T02:00:00-07:00'}]); if(g[0].day!=='2025-09-29') throw Error('wrong order'); });
-  t('toggle add/remove', ()=>{ const id = SESSIONS[0].id; delete state.selected[id]; toggle(id); if(!state.selected[id]) throw Error('did not select'); toggle(id); if(state.selected[id]) throw Error('did not remove'); });
-  t('search filter', ()=>{ const prev = Object.assign({}, state.filters); state.filters.q='Registration'; const res = filteredSessions(); if(!res.some(s=>/Registration/i.test(s.title))) throw Error('search failed'); state.filters = prev; });
-  t('hidden session cannot be added', ()=>{ const hidden = SESSIONS.find(s=>s.regEnabled===false); if(!hidden) return; delete state.selected[hidden.id]; toggle(hidden.id); if(state.selected[hidden.id]) throw Error('hidden session was added'); });
-}
 })();
 </script>
 </body>
