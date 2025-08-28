@@ -153,8 +153,8 @@ const state = { customer: "", notes: "", selected: {}, filters: { q:"", track:""
 const $ = (id) => document.getElementById(id);
 let els; // Will be initialized in init() when DOM is ready
 const unique = (list) => Array.from(new Set(list)).filter(Boolean);
-const fmtDate   = (d) => new Date(d).toLocaleDateString("en-US", { timeZone:"America/Los_Angeles", weekday:"long", month:"short", day:"numeric" });
-const fmtDateShort = (d) => new Date(d).toLocaleDateString("en-US", { timeZone:"America/Los_Angeles", month:"short", day:"numeric" });
+const fmtDate   = (d) => new Date(d + 'T12:00:00-07:00').toLocaleDateString("en-US", { timeZone:"America/Los_Angeles", weekday:"long", month:"short", day:"numeric" });
+const fmtDateShort = (d) => new Date(d + 'T12:00:00-07:00').toLocaleDateString("en-US", { timeZone:"America/Los_Angeles", month:"short", day:"numeric" });
 const fmtTime   = (iso) => new Date(iso).toLocaleTimeString("en-US", { hour:"2-digit", minute:"2-digit", timeZone:"America/Los_Angeles" });
 function showError(msg){ els.error.textContent = msg; els.error.style.display='block'; clearTimeout(showError._t); showError._t=setTimeout(()=>els.error.style.display='none', 2400); }
 function groupByDay(arr){
