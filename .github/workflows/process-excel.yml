@@ -105,6 +105,21 @@ jobs:
               return dateValue.toString();
             };
             
+            // Handle regEnabled field - check multiple possible column names
+            let regEnabled = true; // default to enabled
+            const enabledValue = row.Enabled || row.enabled || row['Session Registration (Enabled/Disabled)'] || row.Registration;
+            
+            if (enabledValue !== undefined) {
+              if (typeof enabledValue === 'boolean') {
+                regEnabled = enabledValue;
+              } else if (typeof enabledValue === 'string') {
+                const valueStr = enabledValue.toLowerCase();
+                regEnabled = valueStr.includes('enabled') || valueStr === 'true' || valueStr === '1' || valueStr === 'yes';
+              } else if (typeof enabledValue === 'number') {
+                regEnabled = enabledValue !== 0;
+              }
+            }
+            
             return {
               id,
               title,
@@ -116,7 +131,7 @@ jobs:
               speaker,
               level,
               description,
-              regEnabled: row.Enabled !== false && row.enabled !== false // default to true unless explicitly false
+              regEnabled
             };
           });
           
