@@ -13,7 +13,8 @@
     h1{font-weight:800;letter-spacing:-0.02em;margin:0}
     .subtitle{color:var(--muted);margin-top:6px}
     .toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-    input,select,button{background:var(--deep-blue-2);color:var(--white);border:1px solid #233038;border-radius:12px;padding:10px 12px}
+    input,select,button,textarea{background:var(--deep-blue-2);color:var(--white);border:1px solid #233038;border-radius:12px;padding:10px 12px}
+    textarea{font-family:inherit;line-height:1.4}
     .btn{border:none;cursor:pointer;font-weight:700;letter-spacing:-0.015em;border-radius:12px;padding:10px 14px}
     .btn-primary{background:var(--orange);color:var(--white)}
     .btn-quiet{background:#233038;color:var(--white);border:1px solid #2a3a43}
@@ -28,6 +29,7 @@
     .muted{color:var(--muted)}
     .pill{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--pill-bg);color:var(--white);font-size:12px;margin-left:6px}
     .pill.orange{background:var(--orange)}
+    .pill.personal{background:#8b5cf6;color:var(--white)}
     .day-sep{margin:8px 0 2px;padding:6px 10px;border-left:4px solid var(--orange);
       background:linear-gradient(90deg, rgba(250,70,22,0.08), rgba(11,162,179,0.06));
       border-radius:10px 12px 12px 10px;font-weight:800;color:var(--white)}
@@ -39,6 +41,13 @@
     .modal-card{background:#0f171b;border:1px solid #1b262d;border-radius:16px;padding:16px;width:min(480px,92vw);color:var(--white)}
     .modal-title{font-weight:800;margin-bottom:8px}
     .modal-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+    .form-row{display:flex;gap:8px;margin-bottom:12px}
+    .form-row > *{flex:1}
+    .form-group{margin-bottom:12px}
+    .form-group label{display:block;margin-bottom:4px;color:var(--muted);font-size:12px;font-weight:600}
+    .form-group-full{flex:none;width:100%!important}
+    .btn-add{background:#8b5cf6;border:none}
+    .btn-add:hover{background:#7c3aed}
   </style>
 </head>
 <body>
@@ -74,6 +83,7 @@
       <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
           <div style="font-weight:800">My agenda</div>
+          <button id="addPersonalItem" class="btn btn-add" style="padding:6px 10px;font-size:12px">+ Add Item</button>
         </div>
         <ul id="selected" class="list" style="margin-top:6px"></ul>
         <div style="display:flex;gap:12px;margin-top:8px">
@@ -98,6 +108,62 @@
         <button id="printGo" class="btn btn-primary">Print</button>
         <button id="printCancel" class="btn btn-quiet">Cancel</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Personal Item Modal -->
+  <div id="personalItemModal" class="modal">
+    <div class="modal-card">
+      <div class="modal-title" id="personalItemModalTitle">Add Personal Item</div>
+      <form id="personalItemForm">
+        <div class="form-group">
+          <label for="personalTitle">Title *</label>
+          <input type="text" id="personalTitle" required placeholder="Meeting title, break, etc.">
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="personalDate">Date *</label>
+            <input type="date" id="personalDate" required min="2025-09-29" max="2025-10-03">
+          </div>
+          <div class="form-group">
+            <label for="personalStartTime">Start time *</label>
+            <input type="time" id="personalStartTime" required>
+          </div>
+          <div class="form-group">
+            <label for="personalEndTime">End time *</label>
+            <input type="time" id="personalEndTime" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="personalRoom">Room/Location</label>
+            <input type="text" id="personalRoom" placeholder="Conference room, building, etc.">
+          </div>
+          <div class="form-group">
+            <label for="personalSpeaker">Presenter/Organizer</label>
+            <input type="text" id="personalSpeaker" placeholder="Who's organizing or presenting">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group form-group-full">
+            <label for="personalDescription">Description</label>
+            <textarea id="personalDescription" placeholder="Additional notes or details" rows="4" style="resize: vertical; min-height: 80px;"></textarea>
+          </div>
+        </div>
+        
+        <!-- Hidden fields with default values -->
+        <input type="hidden" id="personalTrack" value="Personal">
+        <input type="hidden" id="personalLevel" value="All">
+        
+        <div class="modal-actions">
+          <button type="submit" id="personalItemSave" class="btn btn-add">Save Item</button>
+          <button type="button" id="personalItemCancel" class="btn btn-quiet">Cancel</button>
+          <button type="button" id="personalItemDelete" class="btn btn-quiet" style="display:none">Delete</button>
+        </div>
+      </form>
     </div>
   </div>
 
@@ -149,7 +215,7 @@ function validateSessions() {
   }));
 }
 /************************* State & helpers *************************/
-const state = { customer: "", notes: "", selected: {}, filters: { q:"", track:"", day:"", level:"" } };
+const state = { customer: "", notes: "", selected: {}, personalItems: {}, filters: { q:"", track:"", day:"", level:"" } };
 const $ = (id) => document.getElementById(id);
 let els; // Will be initialized in init() when DOM is ready
 const unique = (list) => Array.from(new Set(list)).filter(Boolean);
@@ -172,7 +238,49 @@ function filteredSessions(){
     .filter(s=>!q || (s.title+' '+(s.description||'')+' '+(s.speaker||'')+' '+(s.room||'')).toLowerCase().includes(q.toLowerCase()))
     .sort((a,b)=>+new Date(a.start)-+new Date(b.start));
 }
-const selectedList = ()=> Object.keys(state.selected).map(id=> SESSIONS.find(s=>s.id===id)).filter(Boolean);
+const selectedList = ()=> {
+  const officialSessions = Object.keys(state.selected).map(id=> SESSIONS.find(s=>s.id===id)).filter(Boolean);
+  const personalSessions = Object.values(state.personalItems);
+  return [...officialSessions, ...personalSessions];
+};
+
+// Personal items management
+function savePersonalItems() {
+  localStorage.setItem('fusionAgendaPersonalItems', JSON.stringify(state.personalItems));
+}
+
+function loadPersonalItems() {
+  try {
+    const saved = localStorage.getItem('fusionAgendaPersonalItems');
+    if (saved) {
+      state.personalItems = JSON.parse(saved);
+    }
+  } catch (error) {
+    console.error('Failed to load personal items:', error);
+    state.personalItems = {};
+  }
+}
+
+function addPersonalItem(item) {
+  const id = generateId();
+  state.personalItems[id] = { ...item, id, isPersonal: true };
+  savePersonalItems();
+  return id;
+}
+
+function updatePersonalItem(id, updates) {
+  if (state.personalItems[id]) {
+    state.personalItems[id] = { ...state.personalItems[id], ...updates };
+    savePersonalItems();
+  }
+}
+
+function deletePersonalItem(id) {
+  if (state.personalItems[id]) {
+    delete state.personalItems[id];
+    savePersonalItems();
+  }
+}
 
 /*********************** Rendering ************************/
 function renderFilters(){
@@ -215,7 +323,30 @@ function drawSelected(){
   $("totalMinutes").textContent = Math.round(minutes);
   els.selected.innerHTML = groups.map(g=>{
     const head = `<div class="day-sep">${fmtDate(g.day)}</div>`;
-    const rows = g.items.map(s=>`<li class="item"><div class="muted">${fmtTime(s.start)} – ${fmtTime(s.end)}</div><div style="display:flex;gap:8px;align-items:flex-start"><div style="flex:1"><div style="font-weight:800">${s.title}</div>${s.room?`<div class=\"muted\">${s.room}</div>`:''}</div><button class="btn btn-quiet" onclick="toggle('${s.id}')">Remove</button></div></li>`).join("");
+    const rows = g.items.map(s=>{
+      const personalPill = s.isPersonal ? '<span class="pill personal">Personal</span>' : '';
+      const trackPill = s.track && !s.isPersonal ? `<span class="pill orange">${s.track}</span>` : '';
+      const speakerInfo = s.speaker && s.speaker !== '—' ? `<div class="muted">${s.speaker}</div>` : '';
+      const roomInfo = s.room && s.room !== '—' ? `<div class="muted">${s.room}</div>` : '';
+      const actionButton = s.isPersonal 
+        ? `<button class="btn btn-quiet" onclick="editPersonalItem('${s.id}')">Edit</button><button class="btn btn-quiet" onclick="toggle('${s.id}')" style="margin-left:4px">Remove</button>`
+        : `<button class="btn btn-quiet" onclick="toggle('${s.id}')">Remove</button>`;
+      
+      return `<li class="item">
+        <div class="muted">${fmtTime(s.start)} – ${fmtTime(s.end)} ${personalPill}${trackPill}</div>
+        <div style="display:flex;gap:8px;align-items:flex-start">
+          <div style="flex:1">
+            <div style="font-weight:800">${s.title}</div>
+            ${speakerInfo}
+            ${roomInfo}
+            ${s.description ? `<div class="muted">${s.description}</div>` : ''}
+          </div>
+          <div style="display:flex;gap:4px">
+            ${actionButton}
+          </div>
+        </div>
+      </li>`;
+    }).join("");
     return head + `<ul class="list">${rows}</ul>`;
   }).join("");
 }
@@ -225,12 +356,148 @@ function draw(){
   drawSessions(); drawSelected();
 }
 function toggle(id){
+  // Handle personal items
+  if(state.personalItems[id]) {
+    delete state.personalItems[id];
+    savePersonalItems();
+    draw();
+    return;
+  }
+  
+  // Handle regular sessions
   const s = SESSIONS.find(x=>x.id===id); if(!s) return;
   if(state.selected[id]){ delete state.selected[id]; draw(); return; }
   if(s.regEnabled===false){ showError('This session is hidden and cannot be added'); return; }
   state.selected[id] = true; draw();
 }
 window.toggle = toggle;
+
+/*********************** Personal Item Management ************************/
+let currentEditingPersonalId = null;
+
+function openPersonalItemModal(editId = null) {
+  console.log('openPersonalItemModal called with editId:', editId);
+  currentEditingPersonalId = editId;
+  const modal = $("personalItemModal");
+  const form = $("personalItemForm");
+  const title = $("personalItemModalTitle");
+  const deleteBtn = $("personalItemDelete");
+  
+  console.log('Modal element:', modal);
+  if (!modal) {
+    console.error('Modal element not found!');
+    return;
+  }
+  
+  if (editId && state.personalItems[editId]) {
+    // Edit mode
+    const item = state.personalItems[editId];
+    title.textContent = "Edit Personal Item";
+    
+    // Parse the ISO datetime back to date and time inputs
+    const startDate = new Date(item.start);
+    const endDate = new Date(item.end);
+    
+    $("personalTitle").value = item.title || '';
+    $("personalDate").value = item.day || '';
+    $("personalStartTime").value = startDate.toTimeString().substr(0,5) || '';
+    $("personalEndTime").value = endDate.toTimeString().substr(0,5) || '';
+    $("personalRoom").value = item.room === '—' ? '' : (item.room || '');
+    $("personalSpeaker").value = item.speaker === '—' ? '' : (item.speaker || '');
+    $("personalDescription").value = item.description || '';
+    $("personalTrack").value = 'Personal'; // Always set to Personal
+    $("personalLevel").value = 'All'; // Always set to All
+    
+    deleteBtn.style.display = 'inline-block';
+  } else {
+    // Add mode
+    title.textContent = "Add Personal Item";
+    form.reset();
+    $("personalTrack").value = 'Personal'; // Always set to Personal
+    $("personalLevel").value = 'All'; // Always set to All
+    $("personalDate").value = '2025-09-29'; // Default to first day of conference
+    deleteBtn.style.display = 'none';
+  }
+  
+  modal.style.display = 'flex';
+}
+
+function closePersonalItemModal() {
+  $("personalItemModal").style.display = 'none';
+  currentEditingPersonalId = null;
+}
+
+function handlePersonalItemSubmit(e) {
+  e.preventDefault();
+  
+  const title = $("personalTitle").value.trim();
+  const date = $("personalDate").value;
+  const startTime = $("personalStartTime").value;
+  const endTime = $("personalEndTime").value;
+  
+  if (!title || !date || !startTime || !endTime) {
+    showError('Please fill in all required fields');
+    return;
+  }
+  
+  // Validate date is within conference range (Sept 29 - Oct 3, 2025)
+  const minDate = '2025-09-29';
+  const maxDate = '2025-10-03';
+  if (date < minDate || date > maxDate) {
+    showError('Please select a date between September 29 and October 3, 2025');
+    return;
+  }
+  
+  // Create start and end datetime strings in Pacific time
+  const start = `${date}T${startTime}:00.000-07:00`;
+  const end = `${date}T${endTime}:00.000-07:00`;
+  
+  // Validate end time is after start time
+  if (new Date(end) <= new Date(start)) {
+    showError('End time must be after start time');
+    return;
+  }
+  
+  const item = {
+    title,
+    day: date,
+    start,
+    end,
+    room: $("personalRoom").value.trim() || '—',
+    speaker: $("personalSpeaker").value.trim() || '—',
+    description: $("personalDescription").value.trim(),
+    track: $("personalTrack").value.trim() || 'Personal',
+    level: $("personalLevel").value.trim() || '',
+    regEnabled: true,
+    isPersonal: true
+  };
+  
+  if (currentEditingPersonalId) {
+    // Update existing item
+    updatePersonalItem(currentEditingPersonalId, item);
+  } else {
+    // Add new item
+    addPersonalItem(item);
+  }
+  
+  closePersonalItemModal();
+  draw();
+}
+
+function handlePersonalItemDelete() {
+  if (currentEditingPersonalId && confirm('Are you sure you want to delete this personal item?')) {
+    deletePersonalItem(currentEditingPersonalId);
+    closePersonalItemModal();
+    draw();
+  }
+}
+
+function editPersonalItem(id) {
+  openPersonalItemModal(id);
+}
+
+// Make functions available globally
+window.editPersonalItem = editPersonalItem;
 
 /*********************** Events ************************/
 async function init(){
@@ -246,6 +513,7 @@ async function init(){
   if (loaded) {
     validateSessions();
     renderFilters();
+    loadPersonalItems(); // Load saved personal items
     
     // Set up event listeners
     $("q").addEventListener('input', e=>{ state.filters.q=e.target.value; draw(); });
@@ -257,6 +525,22 @@ async function init(){
     $("printOptions").addEventListener('click', ()=>{ $("printModal").style.display='flex'; });
     $("printCancel").addEventListener('click', ()=>{ $("printModal").style.display='none'; });
     $("print").addEventListener('click', ()=>{ $("printGo").click(); });
+    
+    // Personal item event listeners
+    const addBtn = $("addPersonalItem");
+    console.log('Add Personal Item button:', addBtn);
+    if (addBtn) {
+      addBtn.addEventListener('click', ()=> {
+        console.log('Add Personal Item button clicked!');
+        openPersonalItemModal();
+      });
+    } else {
+      console.error('Add Personal Item button not found!');
+    }
+    
+    $("personalItemForm").addEventListener('submit', handlePersonalItemSubmit);
+    $("personalItemCancel").addEventListener('click', closePersonalItemModal);
+    $("personalItemDelete").addEventListener('click', handlePersonalItemDelete);
     $("printGo").addEventListener('click', ()=>{
       const o = {
         includeSpeakers: $("optSpeakers").checked,
