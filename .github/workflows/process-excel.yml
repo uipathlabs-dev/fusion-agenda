@@ -7,6 +7,11 @@ on:
       - 'data/*.xlsx'
       - 'data/*.xls'
   workflow_dispatch:
+    inputs:
+      force_run:
+        description: 'Force run conversion even without Excel changes'
+        required: false
+        default: 'false'
 
 jobs:
   convert-excel:
@@ -35,120 +40,145 @@ jobs:
         const fs = require('fs');
         const path = require('path');
         
-        // Find Excel files in data directory
-        const dataDir = './data';
-        const files = fs.readdirSync(dataDir).filter(f => f.match(/\.(xlsx?|xls)$/i));
-        
-        if (files.length === 0) {
-          console.log('No Excel files found in data directory');
-          process.exit(0);
+        function generateId() {
+          return Math.random().toString(36).substr(2, 13);
         }
         
-        // Use the first Excel file found
-        const excelFile = path.join(dataDir, files[0]);
-        console.log('Processing:', excelFile);
+        console.log('Converting Excel Agenda sheet to JSON...');
         
         try {
-          // Read the Excel file
+          // Find Excel files in data directory
+          const dataDir = './data';
+          const files = fs.readdirSync(dataDir).filter(f => f.match(/\.(xlsx?)$/i) && !f.startsWith('~'));
+          
+          if (files.length === 0) {
+            console.log('No Excel files found in data directory');
+            process.exit(0);
+          }
+          
+          const excelFile = path.join(dataDir, files[0]);
+          console.log('Processing:', excelFile);
+          
           const workbook = XLSX.readFile(excelFile);
-          const sheetName = workbook.SheetNames[0];
-          const worksheet = workbook.Sheets[sheetName];
+          const worksheet = workbook.Sheets['Agenda'];
           
-          // Convert to JSON
-          const rawData = XLSX.utils.sheet_to_json(worksheet);
-          console.log('Found', rawData.length, 'rows in Excel file');
+          if (!worksheet) {
+            throw new Error('Agenda sheet not found. Available sheets: ' + workbook.SheetNames.join(', '));
+          }
           
-          // Transform data to expected format
-          const sessions = rawData.map((row, index) => {
-            // Map specific Excel column names to standard fields
-            const id = row['Unique ID'] || row.ID || row.Id || generateId();
-            const title = row['Session Title*'] || row['Session Title'] || row.Title || row.SESSION || 'Untitled Session';
-            const track = row['1st Filter Name'] || row.Track || row.TRACK || 'General';
-            const startDateTime = row['Start Date & Time\nMM/DD/YYYY 12H'] || row['Start Date & Time'] || row.Start || '';
-            const endDateTime = row['End Date & Time\nMM/DD/YYYY 12H'] || row['End Date & Time'] || row.End || '';
-            const room = row['Sessions Main Location'] || row.Room || row.Location || '—';
-            const speaker = row['(Email, Session-Role)'] || row.Speaker || row.Presenter || '—';
-            const level = row['2nd Filter Name'] || row.Level || 'All';
-            const description = row['Description'] || row.DESCRIPTION || '';
+          // Get raw data starting from row 3 (headers)
+          const rawData = XLSX.utils.sheet_to_json(worksheet, { 
+            range: 2, // Start from row 3 (0-indexed)
+            header: 1 // Use first row as headers
+          });
+          
+          console.log('Found', rawData.length, 'data rows');
+          
+          if (rawData.length === 0) {
+            throw new Error('No data found in Agenda sheet');
+          }
+          
+          // Process each data row
+          const sessions = [];
+          
+          for (let i = 1; i < rawData.length; i++) { // Skip header row
+            const row = rawData[i];
+            if (!row || row.length === 0) continue;
             
-            // Extract day from start datetime
+            // Map columns by index based on Excel structure
+            const id = row[0] || generateId();
+            const title = row[1] || '';
+            const description = row[2] || '';
+            const startDateTime = row[4]; // Excel date serial
+            const endDateTime = row[5];   // Excel date serial
+            const visible = row[6] || 'Visible';
+            const speaker = row[7] || '';
+            const room = row[8] || '—';
+            
+            // Skip empty or invalid sessions
+            if (!title || title.trim() === '') continue;
+            
+            // Convert Excel date serial to JavaScript Date
             let day = '';
             let start = '';
             let end = '';
             
-            if (startDateTime) {
-              // Parse MM/DD/YYYY format datetime
-              const startDate = new Date(startDateTime);
+            if (typeof startDateTime === 'number') {
+              // Excel date serial to JS Date: (serial - 25569) * 86400 * 1000
+              const startDate = new Date((startDateTime - 25569) * 86400 * 1000);
               if (!isNaN(startDate.getTime())) {
-                day = startDate.toISOString().split('T')[0]; // YYYY-MM-DD format
+                day = startDate.toISOString().split('T')[0]; // YYYY-MM-DD
                 start = startDate.toISOString().replace('Z', '-07:00'); // Pacific time
               }
             }
             
-            if (endDateTime) {
-              const endDate = new Date(endDateTime);
+            if (typeof endDateTime === 'number') {
+              const endDate = new Date((endDateTime - 25569) * 86400 * 1000);
               if (!isNaN(endDate.getTime())) {
-                end = endDate.toISOString().replace('Z', '-07:00'); // Pacific time
+                end = endDate.toISOString().replace('Z', '-07:00');
               }
             }
             
-            
-            // Handle regEnabled field - check multiple possible column names
-            let regEnabled = true; // default to enabled
-            const enabledValue = row.Enabled || row.enabled || row['Session Registration (Enabled/Disabled)'] || row.Registration;
-            
-            if (enabledValue !== undefined) {
-              if (typeof enabledValue === 'boolean') {
-                regEnabled = enabledValue;
-              } else if (typeof enabledValue === 'string') {
-                const valueStr = enabledValue.toLowerCase();
-                regEnabled = valueStr.includes('enabled') || valueStr === 'true' || valueStr === '1' || valueStr === 'yes';
-              } else if (typeof enabledValue === 'number') {
-                regEnabled = enabledValue !== 0;
-              }
+            // Determine if session is enabled for registration
+            let regEnabled = true;
+            const regValue = row[11]; // Session Registration (Enabled/Disabled) column
+            if (regValue) {
+              const valueStr = regValue.toString().toLowerCase();
+              regEnabled = valueStr.includes('enabled') || valueStr === 'true' || valueStr === '1' || valueStr === 'yes';
+            }
+            if (visible && visible.toLowerCase().includes('hidden')) {
+              regEnabled = false;
             }
             
-            return {
-              id,
-              title,
-              track,
-              day, // Already in YYYY-MM-DD format
+            // Get track, level from appropriate columns
+            const track = row[20] || 'General'; // 1st Filter column
+            const level = row[22] || 'All';     // 2nd Filter column
+            
+            const session = {
+              id: id.toString(),
+              title: title.toString(),
+              track: track.toString(),
+              day,
               start,
               end,
-              room,
-              speaker,
-              level,
-              description,
+              room: room.toString(),
+              speaker: speaker.toString() || '—',
+              level: level.toString(),
+              description: description.toString(),
               regEnabled
             };
-          });
+            
+            // Only add sessions with valid day
+            if (session.day) {
+              sessions.push(session);
+              console.log('Processed: ' + session.title + ' on ' + session.day);
+            }
+          }
           
-          // Filter out invalid sessions (must have title and day)
-          const validSessions = sessions.filter(s => s.title && s.day);
-          console.log('Processed', validSessions.length, 'valid sessions');
+          console.log('Successfully processed ' + sessions.length + ' sessions');
           
-          // Create the output JSON
+          // Show sample
+          if (sessions.length > 0) {
+            console.log('Sample session:', JSON.stringify(sessions[0], null, 2));
+          }
+          
+          // Create output JSON
           const output = {
             metadata: {
               generatedAt: new Date().toISOString(),
               source: path.basename(excelFile),
-              totalSessions: validSessions.length
+              totalSessions: sessions.length
             },
-            sessions: validSessions
+            sessions
           };
           
           // Write to agenda.json
           fs.writeFileSync('./agenda.json', JSON.stringify(output, null, 2));
-          console.log('Generated agenda.json successfully');
+          console.log('✅ Generated agenda.json with ' + sessions.length + ' sessions');
           
         } catch (error) {
-          console.error('Error processing Excel file:', error);
+          console.error('❌ Error:', error.message);
           process.exit(1);
-        }
-        
-        // Helper function to generate unique IDs
-        function generateId() {
-          return Math.random().toString(36).substr(2, 13);
         }
         "
         
