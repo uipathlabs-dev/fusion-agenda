@@ -1,23 +1,10 @@
 {
   "metadata": {
-    "generatedAt": "2025-09-02T18:39:42.787Z",
+    "generatedAt": "2025-09-02T19:04:00.866Z",
     "source": "FUSION Agenda_082625.xlsx",
-    "totalSessions": 64
+    "totalSessions": 63
   },
   "sessions": [
-    {
-      "id": "fZXMyxrgNGfBX",
-      "title": "test 9/2/25",
-      "track": "General",
-      "day": "2025-09-29",
-      "start": "2025-09-29T02:00:00.000-07:00",
-      "end": "2025-09-29T06:00:00.000-07:00",
-      "room": "—",
-      "speaker": "—",
-      "level": "All",
-      "description": "",
-      "regEnabled": true
-    },
     {
       "id": "UlYWw2azauI2i",
       "title": "Registration",
@@ -39,7 +26,7 @@
       "start": "2025-09-29T12:59:59.999-07:00",
       "end": "2025-09-29T17:00:00.000-07:00",
       "room": "—",
-      "speaker": "(cassidy.henry@uipath.com,Moderator)(Daniel.dines@uipath.com,Speaker)(graham.sheldon@uipath.com,Speaker)(ashim.gupta@uipath.com,Speaker)(ben.fiechtner@uipath.com,Speaker)(phillip.clay@uipath.com,Speaker)",
+      "speaker": "—",
       "level": "All",
       "description": "",
       "regEnabled": true
@@ -91,7 +78,7 @@
       "start": "2025-09-30T09:00:00.000-07:00",
       "end": "2025-09-30T09:14:59.999-07:00",
       "room": "—",
-      "speaker": "(ben.fiechtner@uipath.com,Keynote)",
+      "speaker": "—",
       "level": "Industry",
       "description": "Join Ben Fiechtner, President of the Americas, as he sets the stage for FUSION with a dynamic preview of what's in store over the next two days.",
       "regEnabled": true
@@ -104,7 +91,7 @@
       "start": "2025-09-30T09:14:59.999-07:00",
       "end": "2025-09-30T09:55:00.000-07:00",
       "room": "—",
-      "speaker": "(Daniel.dines@uipath.com,Keynote)(rajat.kalia@voya.com,Speaker)(aaron.white@cslbehring.com,Speaker)",
+      "speaker": "—",
       "level": "All",
       "description": "In this keynote, UiPath CEO and Co-Founder Daniel Dines unveils a bold vision for an agentic future—where autonomous AI agents, robots, and people are orchestrated with governance and control to transform how work gets done and deliver enterprise-scale ROI. ",
       "regEnabled": true
@@ -117,7 +104,7 @@
       "start": "2025-09-30T09:55:00.000-07:00",
       "end": "2025-09-30T10:54:59.999-07:00",
       "room": "—",
-      "speaker": "(graham.sheldon@uipath.com,Keynote)(raghu.malpani@uipath.com,Keynote)",
+      "speaker": "—",
       "level": "All",
       "description": "Join UiPath Chief Product Officer Graham Sheldon and UiPath Chief Technology Officer Ragu Malpani as theyshare how organizations are already deploying agentic automation to solve real business challenges—unlocking value today with AI-powered agents, reusable components, and enterprise-grade orchestration. ",
       "regEnabled": true
@@ -130,7 +117,7 @@
       "start": "2025-09-30T10:50:00.000-07:00",
       "end": "2025-09-30T11:10:00.000-07:00",
       "room": "—",
-      "speaker": "(raghu.malpani@uipath.com,Keynote)",
+      "speaker": "—",
       "level": "All",
       "description": "",
       "regEnabled": false
@@ -143,7 +130,7 @@
       "start": "2025-09-30T10:54:59.999-07:00",
       "end": "2025-09-30T11:25:00.000-07:00",
       "room": "—",
-      "speaker": "(place.holder5@uipath.com,Keynote)",
+      "speaker": "—",
       "level": "Industry",
       "description": "Craig Le Clair shares his view of agentic automation, enabled by AI agents, as a significant shift that will reshape enterprise workflow automation and potentially lead to hypergrowth. He’ll discuss findings and implications of the agent experience (AX) derived from new research and his new book, “Random Acts of Automation.”",
       "regEnabled": true
@@ -234,7 +221,7 @@
       "start": "2025-09-30T15:00:00.000-07:00",
       "end": "2025-09-30T15:20:00.000-07:00",
       "room": "—",
-      "speaker": "(taqi.jaffri@uipath.com,Speaker)(mateus.salomao@wexinc.com,Speaker)",
+      "speaker": "—",
       "level": "Track",
       "description": " WEX Inc. used UiPath’s low-code Agent Builder to transform contact center operations by automating email-based service requests, particularly around denied claims. Emails are classified with UiPath Communications Mining, then passed to AI agents and workflows that extract context, identify denial reasons, and generate draft responses. Orchestrated via UiPath Maestro, this solution reduces average handle time (AHT), improves customer satisfaction (CSAT), and is positioned to save over $1M annually. In this session, WEX shares how they built and deployed these agents, the orchestration between humans, robots, and agents, and lessons learned in scaling agentic automation across functions like AML reporting and customer profiling.",
       "regEnabled": true
@@ -247,7 +234,7 @@
       "start": "2025-09-30T15:00:00.000-07:00",
       "end": "2025-09-30T15:20:00.000-07:00",
       "room": "—",
-      "speaker": "(janette.hausler@uipath.com,Moderator)(pkistner@allegisglobalsolutions.com,Speaker)(Neil.Kalmes@evernorth.com,Speaker)",
+      "speaker": "—",
       "level": "Track",
       "description": "Across industries, organizations are moving from fragmented automation efforts to connected, outcome-focused systems of work. In this session, hear how early mover leaders zeroed in on high-impact use cases, orchestrated complex workflows, and delivered real business value along the way. From reconciling invoices to auditing contracts, they’re turning to the combination of agents, robots, and people so they can scale faster, smarter, and with purpose. ",
       "regEnabled": true
@@ -260,7 +247,7 @@
       "start": "2025-09-30T15:00:00.000-07:00",
       "end": "2025-09-30T18:00:00.000-07:00",
       "room": "—",
-      "speaker": "(taqi.jaffri@uipath.com,Moderator)(daniela.rosenstein@catonetworks.com,Speaker)(vanitha.preston@cslbehring.com,Speaker)",
+      "speaker": "—",
       "level": "All",
       "description": "Hear from the Trailblazers of Agentic AI \nGet an inside look at how pioneering customers are successfully putting agentic AI into action. They'll share real-world strategies, lessons learned, and what’s working now. Spotlighting those harnessing the power of low-code, pro-code, and Maestro, these stories showcase how to drive meaningful, measurable outcomes with confidence. ",
       "regEnabled": false
@@ -273,7 +260,7 @@
       "start": "2025-09-30T15:59:59.999-07:00",
       "end": "2025-09-30T16:20:00.000-07:00",
       "room": "—",
-      "speaker": "(taqi.jaffri@uipath.com,Speaker)(daniela.rosenstein@catonetworks.com,Speaker)",
+      "speaker": "—",
       "level": "Track",
       "description": "Cato Networks implemented agentic automation with UiPath Coded Agents (Python) to transform customer support operations. By automating the classification of inbound Zendesk tickets and autonomously resolving common inquiries, Cato reduced resolution times, minimized manual work, and improved consistency across responses — directly enhancing the customer experience. This session explores how they built their coded agent, the challenges encountered, and lessons learned while deploying an automation that touches customers at scale.",
       "regEnabled": true
@@ -286,7 +273,7 @@
       "start": "2025-09-30T15:59:59.999-07:00",
       "end": "2025-09-30T16:20:00.000-07:00",
       "room": "—",
-      "speaker": "(bob.sacunas@uipath.com,Moderator)(emily.krohne@wexinc.com,Speaker)(cmiranda@rtix.com,Speaker)(Alfred.Ochoa@sce.com,Speaker)",
+      "speaker": "—",
       "level": "Type",
       "description": "Customers today expect fast, personalized answers. Industry leaders like WEX, SCE, and Evergen are showing how agentic automation helps make that possible in the contact center—each in their own way. From accelerating email replies in financial services, to guiding agents through complex utility billing conversations, to matching patients with donor tissue faster in healthcare, they’re finding smarter ways to meet rising expectations.\n\n\n\n\nJoin the session to hear their stories, lessons learned, and ideas you can run with to unlock insights and scale success for your customers.",
       "regEnabled": true
@@ -299,7 +286,7 @@
       "start": "2025-09-30T16:30:00.000-07:00",
       "end": "2025-09-30T16:50:00.000-07:00",
       "room": "—",
-      "speaker": "(taqi.jaffri@uipath.com,Speaker)(thach.nguyen@hubinternational.com,Speaker)",
+      "speaker": "—",
       "level": "Track",
       "description": "HUB International is using UiPath IXP (Intelligent Xtraction & Processing) to streamline document-centric workflows at scale. This session outlines how IXP can be applied to high-volume intake, classification, extraction, validation, and downstream automation, and how HUB is approaching an enterprise-grade rollout. We’ll cover the target processes, the build approach with IXP, orchestration with robots and humans-in-the-loop, and lessons learned.",
       "regEnabled": true
@@ -312,7 +299,7 @@
       "start": "2025-09-30T17:00:00.000-07:00",
       "end": "2025-09-30T17:19:59.999-07:00",
       "room": "—",
-      "speaker": "(dana.forfa@uipath.com,Speaker)(zeth.baker@clorox.com,Speaker)",
+      "speaker": "—",
       "level": "Track",
       "description": "This joint session brings together two leading brands to explore a shared playbook for building and scaling agentic automation. While Clorox and UiPath began their journeys from different starting points—one focused on creating a governance-driven blueprint for expansion, the other on executing high-impact use cases—both have applied the same core principles: thoughtful use case selection, strong governance, measurable outcomes, and a vision for enterprise-wide adoption. Together, they will share how these principles translate into scalable, well-governed agentic automation programs that drive real business value, offering practical guidance attendees can put into action.",
       "regEnabled": true
@@ -325,7 +312,7 @@
       "start": "2025-09-30T17:29:59.999-07:00",
       "end": "2025-09-30T17:50:00.000-07:00",
       "room": "—",
-      "speaker": "(taqi.jaffri@uipath.com,Speaker)(vanitha.preston@cslbehring.com,Speaker)",
+      "speaker": "—",
       "level": "Track",
       "description": "",
       "regEnabled": true
@@ -377,7 +364,7 @@
       "start": "2025-10-01T08:00:00.000-07:00",
       "end": "2025-10-01T08:29:59.999-07:00",
       "room": "—",
-      "speaker": "(molly.mecham@uipath.com,Moderator)(meghan@fifcollective.co,Speaker)(pfstrzempek@geisinger.edu,Speaker)",
+      "speaker": "—",
       "level": "All",
       "description": "Celebrate the voices driving automation forward. This session spotlights bold perspectives on innovation, inclusion, and navigating the evolving tech landscape. Be inspired by real stories—and empowered to lead your own. \n\n ",
       "regEnabled": true
@@ -416,7 +403,7 @@
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "—",
-      "speaker": "(caleb.jones@uipath.com,Speaker)(bob.sacunas@uipath.com,Speaker)(siddharth.shah@intel.com,Speaker)(vinay.gangidi@ansys.com,Speaker)(wykita.riley@delta.com,Speaker)(matt.dussling@uipath.com,Speaker)(aaron.goodrich@loves.com,Speaker)(flosshilda.labrado@t-mobile.com,Speaker)",
+      "speaker": "—",
       "level": "Industry",
       "description": "9:00 - Welcome\n\nJoin Caleb Jones, UiPath Strategic Engagement Executive, for a brief welcome and introduction of the panel participants ad topic.\n\n9:05 - Breaking Silos: Intelligent Process Optimization \n\nThis panel brings together leaders who’ve transformed operations in finance, legal, and marketing using agentic automation. Hear how they’ve deployed AI-driven solutions that stay compliant and still deliver real ROI in highly regulated spaces. Discover how to spot high-impact opportunities and build unified strategies for end-to-end process transformation.  \n\n9:50 - Break\n\n10:00 - Welcome\n\n10:05 - Seamless CX: The Agentic Customer Journey \n\nSee how top organizations are using agentic automation to reimagine customer experiences. Leaders will share how AI agents are helping personalize interactions, simplify service, and stay one step ahead of customer needs. Learn how they’re combining smart automation with the human touch—and building systems that get better with every interaction.  \n\n10:50 - Break\n\n11:00 - Welcome\n\n11:05 - Intelligent Quality Assurance: The New Rules in Test Automation \n\nWith software complexity on the rise, autonomous AI agents are changing the game in QA. Experts will show how agentic testing strategies bring together human insight and AI speed to boost test coverage and shorten feedback loops. Get practical tips on plugging agentic testing into your CI/CD pipelines and scaling smart testing frameworks that grow with your needs.  ",
       "regEnabled": true
@@ -442,7 +429,7 @@
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "—",
-      "speaker": "(jason.bui@uipath.com,Speaker)(bdspicer@arkbluecross.com,Speaker)(Neil.Kalmes@evernorth.com,Speaker)(Dan.Deschamps@azblue.com,Speaker)(Jayaprakash.Padiyar@azblue.com,Speaker)(Prasoon.Shrivastava@evernorth.com,Speaker)",
+      "speaker": "—",
       "level": "Track",
       "description": "Payers today are navigating one of the most complex operating environments in healthcare history—balancing rising costs, growing regulatory pressure, and sky-high member expectations. \n\nIt’s clear: outdated systems and fragmented processes can’t keep up.\n\nThis year, we introduce the new agentic power grid for payers — a connected, intelligent infrastructure that transforms how payer organizations operate, decide, and serve. Agentic automation is at the heart of this shift: autonomous digital agents that can adapt, optimize, and orchestrate in real time across the payer ecosystem.\n\nAt this summit, we bring to life a new kind of operational power — one fueled by:\n\n•Community: A network of forward-thinking payer leaders sharing strategies to manage complexity, improve agility, and deliver better outcomes.\n•Content: Bold ideas and real-world success stories that show what happens when payers automate not just tasks, but end-to-end decisions.\n•Consultation: Expert guidance to help your organization plug into the agentic grid—simplifying prior auth, accelerating claims, reducing risk, and transforming member experiences.\nWith the right architecture, organizations are not only modernizing operations but also unlocking rapid, measurable ROI from their investments in agentic automation.\n\nIt’s time to plug into a different model for payer operations for precision, scale, and resilience.\n\nWelcome to the grid.\n\n9:00 - The Autonomy Uplink: Where Payers Are Headed with UiPath\n\nWe'll kick things off with a high-voltage overview of big ideas and big customer wins. \n\n9:30 - Live Currents: Payer Voices from the Agentic Grid\n\nGet inspired by payer organizations who are actively building agentic automation programs around major use cases. With solo presentations and a panel of business leaders and automation experts, you'll leave with plenty of energy and insights to power your agentic strategy. \n\n11:00 - GridOps LIVE: Inside the Agentic Engine\n\nThe most innovative use cases, the best in agentic technology--UiPath engineers will set the stage on fire with live demos. \n\n\n",
       "regEnabled": true
@@ -455,7 +442,7 @@
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "—",
-      "speaker": "(pmerrell@promptcare.com,Speaker)(place.holder2@uipath.com,Speaker)(jwetzel@montefiore.org,Speaker)(emily.traupman@vsp.com,Speaker)(jenn.roth@vsp.com,Speaker)(joseph.m.gannuscio@osfhealthcare.org,Speaker)(benjamin.reigle@tarponhealth.com,Speaker)(Chris.M.Franciskovich@osfhealthcare.org,Speaker)(ajay.mansukhani@nyulangone.org,Speaker)(manal.almaghafi@mclaren.org,Speaker)(taylor.zuke@mclaren.org,Speaker)",
+      "speaker": "—",
       "level": "Track",
       "description": "Provider organizations are under immense pressure — labor shortages, clinician burnout, rising costs, and administrative overload are straining the entire system. To deliver better care and create sustainable operations, we need more than automation. We need intelligence, adaptability, and orchestration.\n\nWelcome to the New Agentic Power Grid for Providers — a dynamic infrastructure powered by intelligent automation that doesn’t just perform tasks but understands context, responds to change, and elevates human potential across clinical and operational workflows.\n\nAt this summit, we’re building that grid together — with a focus on:\n\n•Community: A collaborative network of healthcare leaders and changemakers redefining what’s possible in modern care delivery.\n•Content: Breakthrough ideas and case studies showing how agentic automation reduces administrative burden, improves throughput, and supports overextended teams.\n•Consultation: Direct access to experts who help providers plug into the agentic grid to streamline revenue cycle, enhance care coordination, reduce denials, and drive clinician satisfaction.\nMore than transformation, this is acceleration — with organizations across the care continuum already achieving fast, measurable ROI on their agentic automation investments.\n\nThe future of healthcare isn’t just connected — it’s orchestrated.\n\n Welcome to the grid.\n\n9:00 - Energy Index: Impact to Care Progress Report\n\nWe'll kick off with a high energy readout of the impact of agentic automation on healthcare providers over the last 12 months.\n\n9:30 - Gridlines: Provider Stories That Connect and Scale\n\nHear from business and technology leaders on how they've used agentic automation to streamline business operations and spark big outcomes. With solo presentations and a dynamic customer panel, you'll walk away engergized, inspired, and ready to tackle your own agentic vision. \n\n11:30 - Live from the Grid: Real Provider Solutions in Real Time\n\nThe most innovative use cases, the best in agentic technology--UiPath engineers will set the stage on fire with live demos. ",
       "regEnabled": true
@@ -468,7 +455,7 @@
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "—",
-      "speaker": "(cmiranda@rtix.com,Speaker)(vanitha.preston@cslbehring.com,Speaker)(henry.trinh@cslbehring.com,Speaker)(gita.malladi@abbvie.com,Speaker)(kim.kraus@abbvie.com,Speaker)(aaron.white@cslbehring.com,Speaker)",
+      "speaker": "—",
       "level": "Track",
       "description": "Life sciences organizations today face a uniquely complex mission: accelerating innovation while navigating global regulation, cost pressure, and rising expectations for safety, speed, and patient outcomes. The old operating model — siloed, manual, and fragmented — is no longer viable.\n\nAt this year’s Life Sciences Summit, we introduce the full agentic power grid — not just automation, but a connected infrastructure of people, technology, and intelligence designed to fuel transformation across the entire life sciences value chain.\n\nThis grid is built on four dynamic forces:\n\n1.Agentic Automation: Autonomous digital agents that think, act, and optimize in real time across R&D, regulatory, commercial, and supply chain functions.\n2.Community: A vibrant network of pioneering customers sharing strategies, solutions, and success stories from the front lines of change.\n3.Consultation: Direct access to UiPath experts who help architect intelligent automation for precision, scale, and compliance in regulated environments.\n4.Content: Bold, live sessions that go beyond theory — showcasing real systems, real use cases, and measurable outcomes.\nTogether, these elements form a powerful new model for how life sciences organizations operate — one that moves from static systems to intelligent flow, from isolated teams to orchestrated networks, and from incremental gains to transformative results.\n\nWelcome to the grid — where life sciences power up.\n\n9:00 - Keynote\n\n10:00 - Customer Presentations\n\n11:30 - Customer Panel and Q&A\n\n\n",
       "regEnabled": true
@@ -481,7 +468,7 @@
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "—",
-      "speaker": "(anthony.delafuente@uipath.com,Speaker)(paul.boris@uipath.com,Speaker)(Ronda.Walzer@loves.com,Speaker)(Leslie.Mccalla@loves.com,Speaker)(aaron.goodrich@loves.com,Speaker)(robert.schneider@conagra.com,Speaker)(mioffe@wescodist.com,Speaker)(keith.martin@uipath.com,Speaker)(dhruv.asher@uipath.com,Speaker)",
+      "speaker": "—",
       "level": "Industry",
       "description": "Manufacturers aren’t experimenting with automation anymore; they’re scaling it. This summit dives into how manufacturing organizations are applying agentic automation and Gen AI to connect operations, boost agility, and drive real results across supply chain, production, and quality. Through live demos, curated panel discussions, and production-ready use cases, you’ll see how teams in manufacturing are reducing downtime, speeding up decision-making, and empowering the workforce. Built for leaders in operations, supply chain, IT, and digital transformation, this summit also offers plenty of chances to connect with peers and UiPath experts.\n\n9:00 - Orchestrating the Future of Manufacturing and CPG \n\nWelcome\n\n9:05 - State of Manufacturing: Breaking the Industry 3.9 Rut Featuring Love’s Travel Stores\n\nAn in-depth analysis of current manufacturing challenges and the industry's position at the crossroads of 3.9 and true Industry 4.0 transformation. See how Love’s is having tremendous success combing test automation with physical robots to test their point-of-sale systems.  \n\n9:30 - Leveraging Automation: See How to Enter the Agentic Space Featuring Conagra Brands\n\nDiscover how leading manufacturers are qualifying and implementing agentic programs to break down silos and create unified visibility across operations.  \n\n9:55 - Getting over Your Nerves: First Steps Into Agentic Orchestration, Featuring Wesco Distribution\n\nPractical case studies showcasing how big ideas are becoming reality through intelligent automation.  \n\nMore to come",
       "regEnabled": true
@@ -494,7 +481,7 @@
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "—",
-      "speaker": "(treasa.hunt@nebraska.gov,Speaker)",
+      "speaker": "—",
       "level": "Track",
       "description": "Public sector organizations are under pressure to modernize services, manage limited resources, and meet increasing demands—all while maintaining accountability and compliance. This summit specially designed for public sector attendees explores how government teams are using agentic automation to improve audit readiness, optimize workforce capacity, and modernize legacy systems without costly overhauls. Through a mix of real-world case studies, actionable insights, and live demonstrations, you’ll see how automation helps agencies deliver faster, smarter, and more resilient public services. Attendees will also have opportunities to connect with peers and speak directly with UiPath experts who understand the unique mission needs of the public sector.",
       "regEnabled": true
@@ -559,7 +546,7 @@
       "start": "2025-10-01T15:30:00.000-07:00",
       "end": "2025-10-01T15:35:00.000-07:00",
       "room": "—",
-      "speaker": "(ben.fiechtner@uipath.com,Keynote)",
+      "speaker": "—",
       "level": "All",
       "description": "Join Ben Fiechtner, President of the Americas, as he kicks off our afternoon keynotes exploring the breakthroughs, trends, and bold moves driving the next wave of agentic AI and automation. ",
       "regEnabled": true
@@ -572,7 +559,7 @@
       "start": "2025-10-01T15:35:00.000-07:00",
       "end": "2025-10-01T16:20:00.000-07:00",
       "room": "—",
-      "speaker": "(placeholder@stanford.edu,Speaker)",
+      "speaker": "—",
       "level": "All",
       "description": "AI represents the most transformative General Purpose Technology since the Industrial Revolution, with agentic AI having the potential for automating work across enterprises. Early studies found productivity gains of 15-50% for customer service agents, software engineers, and managers, but these micro-level benefits have not yet translated to economy-wide productivity growth, suggesting we are in the early stages of a “productivity J-curve”. Erik will discuss that, to harness AI, enterprises must more strategically deploy AI tools and agents across business processes and establish better measurement frameworks to identify and quantify their rapidly evolving benefits. ",
       "regEnabled": true
@@ -585,7 +572,7 @@
       "start": "2025-10-01T16:20:00.000-07:00",
       "end": "2025-10-01T17:19:59.999-07:00",
       "room": "—",
-      "speaker": "(raghu.malpani@uipath.com,Keynote)",
+      "speaker": "—",
       "level": "All",
       "description": "UiPath CTO Raghu Malpani explores the platform behind secure, scalable agentic automation—showing how UiPath enables AI agents with policy-driven orchestration, built-in auditability, and seamless integration across enterprise systems to deliver end-to-end trust, control, and performance. ",
       "regEnabled": true
