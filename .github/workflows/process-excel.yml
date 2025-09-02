@@ -18,12 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      actions: read
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
         
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -121,15 +123,11 @@ jobs:
               }
             }
             
-            // Determine if session is enabled for registration
+            // Determine if session is enabled based on visibility
             let regEnabled = true;
-            const regValue = row[11]; // Session Registration (Enabled/Disabled) column
-            if (regValue) {
-              const valueStr = regValue.toString().toLowerCase();
-              regEnabled = valueStr.includes('enabled') || valueStr === 'true' || valueStr === '1' || valueStr === 'yes';
-            }
-            if (visible && visible.toLowerCase().includes('hidden')) {
-              regEnabled = false;
+            if (visible) {
+              const visibilityStr = visible.toString().toLowerCase();
+              regEnabled = !visibilityStr.includes('hidden');
             }
             
             // Get track, level from appropriate columns
@@ -191,13 +189,37 @@ jobs:
         git add agenda.json
         if git diff --staged --quiet; then
           echo "No changes to commit"
+          exit 0
+        fi
+        
+        # Commit the changes
+        git commit -m "Auto-update agenda.json from Excel data
+        
+        🤖 Generated from: $(ls data/*.xlsx data/*.xls 2>/dev/null | head -1 | xargs basename)
+        📅 Generated at: $(date -u +'%Y-%m-%d %H:%M:%S UTC')
+        "
+        
+        # Try to push with better error handling
+        echo "Attempting to push changes..."
+        if git push origin main; then
+          echo "✅ Successfully pushed changes to repository"
         else
-          git commit -m "Auto-update agenda.json from Excel data
-          
-          🤖 Generated from: $(ls data/*.xlsx data/*.xls 2>/dev/null | head -1 | xargs basename)
-          📅 Generated at: $(date -u +'%Y-%m-%d %H:%M:%S UTC')
-          "
-          git push origin main
+          echo "❌ Failed to push changes. This might be due to:"
+          echo "1. Repository permissions - check Actions settings"
+          echo "2. Branch protection rules"
+          echo "3. Token permissions"
+          echo ""
+          echo "📁 Generated agenda.json file is ready but not committed."
+          echo "You can manually download it from the workflow artifacts."
+          exit 1
         fi
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Upload agenda.json as artifact
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: agenda-json-output
+        path: agenda.json
+        retention-days: 30

@@ -150,8 +150,19 @@ If you need to re-run the conversion without uploading a new file:
 **❌ Problem**: Site not updating
 - **Solution**: Wait 5-10 minutes for GitHub Pages, then hard refresh browser
 
-**❌ Problem**: Workflow fails with permissions error
-- **Solution**: Ensure GitHub Actions are enabled in repository settings
+**❌ Problem**: Workflow fails with 403 permissions error
+- **Solution 1**: Enable GitHub Actions write permissions:
+  1. Go to repository **Settings** → **Actions** → **General**
+  2. Under "Workflow permissions", select **"Read and write permissions"**
+  3. Click **Save**
+- **Solution 2**: If using a personal repository (not organization):
+  1. The repository owner must be the one to enable Actions permissions
+  2. Fork the repository to your own account if you need write access
+- **Solution 3**: Download from workflow artifacts:
+  1. If push fails, the JSON file is still generated
+  2. Go to **Actions** → Failed workflow → **Artifacts** section
+  3. Download the `agenda-json-output` file
+  4. Manually commit the downloaded `agenda.json` file
 
 ### Getting Help:
 

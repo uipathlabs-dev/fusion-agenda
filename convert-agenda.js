@@ -72,15 +72,11 @@ try {
       }
     }
     
-    // Determine if session is enabled for registration
+    // Determine if session is enabled based on visibility
     let regEnabled = true;
-    const regValue = row[11]; // Session Registration (Enabled/Disabled) column
-    if (regValue) {
-      const valueStr = regValue.toString().toLowerCase();
-      regEnabled = valueStr.includes('enabled') || valueStr === 'true' || valueStr === '1' || valueStr === 'yes';
-    }
-    if (visible && visible.toLowerCase().includes('hidden')) {
-      regEnabled = false;
+    if (visible) {
+      const visibilityStr = visible.toString().toLowerCase();
+      regEnabled = !visibilityStr.includes('hidden');
     }
     
     // Look for additional columns that might contain track, level, etc.
