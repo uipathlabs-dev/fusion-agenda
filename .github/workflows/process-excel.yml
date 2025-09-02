@@ -16,6 +16,8 @@ on:
 jobs:
   convert-excel:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
     - name: Checkout repository
@@ -195,5 +197,7 @@ jobs:
           🤖 Generated from: $(ls data/*.xlsx data/*.xls 2>/dev/null | head -1 | xargs basename)
           📅 Generated at: $(date -u +'%Y-%m-%d %H:%M:%S UTC')
           "
-          git push
+          git push origin main
         fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
