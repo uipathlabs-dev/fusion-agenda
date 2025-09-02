@@ -4,7 +4,26 @@ This guide shows you how to easily update your FUSION agenda by simply uploading
 
 ## 🚀 Quick Start: Update Excel via GitHub
 
-### Method 1: Upload via GitHub Web Interface (Easiest)
+### Method 1: Web Upload Interface (Easiest - No GitHub Account Required!)
+
+**For ANY user to upload Excel files:**
+
+1. **Visit the upload page**: `https://uipathlabs-dev.github.io/fusion-agenda/upload-secure.html`
+2. **Enter GitHub Token** (one-time setup by admin):
+   - Create at: https://github.com/settings/tokens
+   - Grant "Contents" write permission
+   - Token is validated and never stored
+3. **Drag & drop Excel file** or click "Choose File"
+4. **Automatic processing** - JSON updates in 2-3 minutes
+5. **Live site updates** automatically
+
+**Benefits:**
+- ✅ Works for any user (no GitHub account needed)
+- ✅ Secure token validation
+- ✅ Real-time progress tracking
+- ✅ Direct links to generated files
+
+### Method 2: Upload via GitHub Web Interface (GitHub Account Required)
 
 1. **Go to your GitHub repository**
    - Navigate to: `https://github.com/mihaiandreiuipath/fusion-agenda`
