@@ -170,8 +170,8 @@
 <script>
 (() => {
 /*********************** Data (Pacific time) ***************************/
-// Embedded UiPath logo as data URL (local, no network)
-const LOGO_DATAURL = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAa4AAACMCAYAAAAk5k0TAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAGYktHRAAAAAAAACQ7s9/3AAAAB3RJTUUH5gYcEhoBgK8WKgAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAgYSURBVHja7d15bBxXFcfxx0I4O2Y1bW1f+gYQKqk0Cwq0rKJWV0hB1wQ1y3xokgRGzv1TQ4E0EwqWBEt5iQ7s2c5shy7nJc2Yf2eMhj1o6o1b00qk7uqu+2R8J9b7Q3GUBA1P7tU1c8b1s7m2j3H6Rz3L5b7Yk7x3uHk0kAAAAAAAB4QyHcZ0D8kz3wQAAAB+8z+gQAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAABgU6v3f1h1q8zj7d0v0h2n3N+q1Z5p6uZ2T2Qm7Vd9h2v5kq6o9VQ1W8Uj9Qt7z3rH5+z0x4Y2M1VQf1uQ4w7Tz8W5cQ2Jp2z0m1z8i3p2Jm4dBfKqkq9pGg1dKzv2B/8nPz3c1s7F8Wkqk8XbrN9nYc1eE/3H6t2yXU2d1b6Y7Bz3w+v4t3O4ls8Z0o1I8mJ1p5Zq2c9qz2N0r2G6Q8iQAAAPj7v2Xl2vN7T9Jm8J0tAABg8qzJf5nQXsncS3a7H3q7fUo6p3Ztq7eN3fF8i6L2Wc8mtt8x9d9qjQ0Y9Tz3bQAAANt8r5nZ5zq1n1nq8I0kAAAAYC6o3UoN9l1uk3nI7VZ3eY7Vb4O5p1o7vH0t8c2v4m9m3kQAAALDk2h1g7x9f6nG0QwAAAEiAAQAAAPgGBAAAAPgGBAAAAPgGBAAAAPgGBAAAAPgGBABwqU5Y8i1j6L8+0p3t2V8YlVqU7Sx9l2a7Yb1w+eY4K2VZ8a5h9J5w8bJm2H2t9bY5xk2v8v8QwAAABbLR5b0w9k9vXy4n3sQ2K9n+2g0zv0c7x5f3f3i7c0AAAAr9k9m2o3+z8mHAAAAFifcR4AAAD4BkQAAAD4BkQAAAD4BkQAAAD4BkQAAAD4BgQAAAAAAABg0s0dYF7H2r8v1q5fGJZcN2wXg4o4J7e3A1iQq7w3yP5+eJrQ5Vb3xJfU1u7B6YwAAgGzZg8s1L5rH2J0t55wHAAAA8E0EAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAALg0bXlQq8cHh+fHok7AAAA8G6zvAAAAABgKf8+Y2F8l3JbWlIAAACXoQAAAAD4BkQAAAD4BkQAAAD4BkQAAAD4BkQAAAD4BgQAAAAAAABg/Ab2lq2r1m+7+2o3AAAAuB2kAAAAAOB/SAQAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAADgP0gEAAAA4D9IBAAAAE5m6b5Y3g2AAAAAAABJRU5ErkJggg==';
+// UiPath logo path (local file)
+const LOGO_PATH = './src/uipath-corporate-logo-digital-rgb-ob.png';
 
 // Global sessions data - will be loaded from JSON
 let SESSIONS = [];
@@ -586,7 +586,7 @@ async function init(){
       <h1>UiPath FUSION — Agenda for ${state.customer||'Customer'}</h1>
       ${notesLine?`<div class="subtitle notes">${notesLine.replace('<div class="muted">','').replace('</div>','')}</div>`:''}
     </div>
-    <div class="logo"><img src="${LOGO_DATAURL}" alt="UiPath logo"/></div>
+    <div class="logo"><img src="${LOGO_PATH}" alt="UiPath logo"/></div>
   </header>
   <div class="brand-rule"></div>
   ${items}

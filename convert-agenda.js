@@ -58,7 +58,9 @@ try {
     
     if (typeof startDateTime === 'number') {
       // Excel date serial to JS Date: (serial - 25569) * 86400 * 1000
-      const startDate = new Date((startDateTime - 25569) * 86400 * 1000);
+      // Round to nearest minute to avoid precision issues (2:59:59.999 -> 3:00:00.000)
+      const startTime = Math.round((startDateTime - 25569) * 86400 * 1000 / 60000) * 60000;
+      const startDate = new Date(startTime);
       if (!isNaN(startDate.getTime())) {
         day = startDate.toISOString().split('T')[0]; // YYYY-MM-DD
         start = startDate.toISOString().replace('Z', '-07:00'); // Pacific time
@@ -66,7 +68,9 @@ try {
     }
     
     if (typeof endDateTime === 'number') {
-      const endDate = new Date((endDateTime - 25569) * 86400 * 1000);
+      // Round to nearest minute to avoid precision issues
+      const endTime = Math.round((endDateTime - 25569) * 86400 * 1000 / 60000) * 60000;
+      const endDate = new Date(endTime);
       if (!isNaN(endDate.getTime())) {
         end = endDate.toISOString().replace('Z', '-07:00');
       }
