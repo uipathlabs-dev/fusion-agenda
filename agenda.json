@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-09-03T02:38:39.426Z",
+    "generatedAt": "2025-09-03T02:48:38.469Z",
     "source": "FUSION Agenda_082625.xlsx",
     "totalSessions": 73
   },
@@ -8,7 +8,7 @@
     {
       "id": "UlYWw2azauI2i",
       "title": "Registration Test",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Registration",
       "day": "2025-09-29",
       "start": "2025-09-29T09:00:00.000-07:00",
       "end": "2025-09-29T18:00:00.000-07:00",
@@ -34,7 +34,7 @@
     {
       "id": "Krhl8Nma1U0v6",
       "title": "Welcome Reception",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Break",
       "day": "2025-09-29",
       "start": "2025-09-29T18:00:00.000-07:00",
       "end": "2025-09-29T20:00:00.000-07:00",
@@ -47,7 +47,7 @@
     {
       "id": "6UMDfWV21wFd0",
       "title": "Registration",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Registration",
       "day": "2025-09-30",
       "start": "2025-09-30T06:59:59.999-07:00",
       "end": "2025-09-30T18:00:00.000-07:00",
@@ -60,7 +60,7 @@
     {
       "id": "1GCNShnFWklCK",
       "title": "Breakfast",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Break",
       "day": "2025-09-30",
       "start": "2025-09-30T07:30:00.000-07:00",
       "end": "2025-09-30T09:00:00.000-07:00",
@@ -73,7 +73,7 @@
     {
       "id": "WGIVKPgUZmdTd",
       "title": "The Path to Impact: Igniting Agentic AI Possibilities",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Keynote",
       "day": "2025-09-30",
       "start": "2025-09-30T09:00:00.000-07:00",
       "end": "2025-09-30T09:10:00.000-07:00",
@@ -86,7 +86,7 @@
     {
       "id": "KhIAIhKwe0j0l",
       "title": "UiPath Vision of an Agentic World",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Keynote",
       "day": "2025-09-30",
       "start": "2025-09-30T09:10:00.000-07:00",
       "end": "2025-09-30T09:59:59.999-07:00",
@@ -99,7 +99,7 @@
     {
       "id": "QsrmxZLCIZBk8",
       "title": "Getting the Most from Agentic Automation Now",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Keynote",
       "day": "2025-09-30",
       "start": "2025-09-30T09:59:59.999-07:00",
       "end": "2025-09-30T11:00:00.000-07:00",
@@ -112,7 +112,7 @@
     {
       "id": "3kXv1etHEpJhj",
       "title": "The Agent Experience",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Keynote",
       "day": "2025-09-30",
       "start": "2025-09-30T11:00:00.000-07:00",
       "end": "2025-09-30T11:29:59.999-07:00",
@@ -125,7 +125,7 @@
     {
       "id": "1O2pDtaTNqJMa",
       "title": "Lunch and Hosted Roundtable Topic Discussions",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Break",
       "day": "2025-09-30",
       "start": "2025-09-30T11:29:59.999-07:00",
       "end": "2025-09-30T12:59:59.999-07:00",
@@ -151,7 +151,7 @@
     {
       "id": "u2FKcl3QvwBCL",
       "title": "Transform Enterprise Business Processes Keynote",
-      "track": "Maestro",
+      "track": "Break",
       "day": "2025-09-30",
       "start": "2025-09-30T12:00:00.000-07:00",
       "end": "2025-09-30T12:24:59.999-07:00",
@@ -164,7 +164,7 @@
     {
       "id": "zOKTa0zWJ2wqS",
       "title": "Unlock Data for Powerful Agentic Automation​ Keynote",
-      "track": "API Workflows,Data Fabric",
+      "track": "Keynote",
       "day": "2025-09-30",
       "start": "2025-09-30T12:00:00.000-07:00",
       "end": "2025-09-30T12:55:00.000-07:00",
@@ -177,7 +177,7 @@
     {
       "id": "B0YiFflxluqSg",
       "title": "Meet the Experts",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Agentic Arena",
       "day": "2025-09-30",
       "start": "2025-09-30T12:00:00.000-07:00",
       "end": "2025-09-30T15:00:00.000-07:00",
@@ -190,7 +190,7 @@
     {
       "id": "xqd8jIBmBv1OF",
       "title": "Accelerate the Agentic Enterprise Keynote",
-      "track": "Agent Builder,IXP",
+      "track": "Keynote",
       "day": "2025-09-30",
       "start": "2025-09-30T12:30:00.000-07:00",
       "end": "2025-09-30T12:55:00.000-07:00",
@@ -229,7 +229,7 @@
     {
       "id": "MkxHtYgxmxxDr",
       "title": "Accelerate the Agentic Enterprise with Solutions",
-      "track": "Chief AI Officer (CAIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Procurement Officer (CPO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Breakout",
       "day": "2025-09-30",
       "start": "2025-09-30T12:59:59.999-07:00",
       "end": "2025-09-30T13:25:00.000-07:00",
@@ -242,7 +242,7 @@
     {
       "id": "kPPdMlCcJv16t",
       "title": "Unlock Data for Powerful Agentic Automation with API Workflows",
-      "track": "API Workflows",
+      "track": "Breakout",
       "day": "2025-09-30",
       "start": "2025-09-30T12:59:59.999-07:00",
       "end": "2025-09-30T13:25:00.000-07:00",
@@ -255,7 +255,7 @@
     {
       "id": "Sm226hEJZLFDe",
       "title": "Transform Enterprise Business Processes with Maestro",
-      "track": "Maestro",
+      "track": "Breakout",
       "day": "2025-09-30",
       "start": "2025-09-30T12:59:59.999-07:00",
       "end": "2025-09-30T13:54:59.999-07:00",
@@ -294,7 +294,7 @@
     {
       "id": "rRBL665zHYhFp",
       "title": "Unlock Data for Powerful Agentic Automation with RPA Workflows",
-      "track": "API Workflows,Studio",
+      "track": "Breakout",
       "day": "2025-09-30",
       "start": "2025-09-30T13:30:00.000-07:00",
       "end": "2025-09-30T13:54:59.999-07:00",
@@ -307,7 +307,7 @@
     {
       "id": "TarrGVpPAYubT",
       "title": "Accelerate the Agentic Enterprise with IXP",
-      "track": "IXP",
+      "track": "Breakout",
       "day": "2025-09-30",
       "start": "2025-09-30T14:00:00.000-07:00",
       "end": "2025-09-30T14:25:00.000-07:00",
@@ -333,7 +333,7 @@
     {
       "id": "RJQVTfEdwwB4o",
       "title": "Unlock Data for Powerful Agentic Automation with Data Fabric",
-      "track": "Data Fabric",
+      "track": "Breakout",
       "day": "2025-09-30",
       "start": "2025-09-30T14:00:00.000-07:00",
       "end": "2025-09-30T14:25:00.000-07:00",
@@ -346,7 +346,7 @@
     {
       "id": "4mH811IPMm9zj",
       "title": "Accelerate the Agentic Enterprise with Agents",
-      "track": "Agent Builder",
+      "track": "Breakout",
       "day": "2025-09-30",
       "start": "2025-09-30T14:00:00.000-07:00",
       "end": "2025-09-30T14:55:00.000-07:00",
@@ -437,7 +437,7 @@
     {
       "id": "9bLFB5fb3bqnr",
       "title": "The Agentified Contact Center: How WEX, Southern California Edison, and Evergen Are Elevating Customer Experience",
-      "track": "Contact Center",
+      "track": "Breakout",
       "day": "2025-09-30",
       "start": "2025-09-30T15:59:59.999-07:00",
       "end": "2025-09-30T16:20:00.000-07:00",
@@ -489,7 +489,7 @@
     {
       "id": "rtUJbBinu8tJX",
       "title": "FUSION Happy Hour: Mix, Mingle & Make Connections",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Break",
       "day": "2025-09-30",
       "start": "2025-09-30T18:00:00.000-07:00",
       "end": "2025-09-30T18:59:59.999-07:00",
@@ -502,7 +502,7 @@
     {
       "id": "dprD5oIQoockh",
       "title": "Industry Networking Happy Hours",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Break",
       "day": "2025-09-30",
       "start": "2025-09-30T18:59:59.999-07:00",
       "end": "2025-09-30T21:00:00.000-07:00",
@@ -515,7 +515,7 @@
     {
       "id": "y2b5j8Y7IuPZH",
       "title": "Registration",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Registration",
       "day": "2025-10-01",
       "start": "2025-10-01T06:59:59.999-07:00",
       "end": "2025-10-01T17:00:00.000-07:00",
@@ -528,7 +528,7 @@
     {
       "id": "Fyk7KxR8aIfpH",
       "title": "Breakfast",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Break",
       "day": "2025-10-01",
       "start": "2025-10-01T07:30:00.000-07:00",
       "end": "2025-10-01T09:00:00.000-07:00",
@@ -554,7 +554,7 @@
     {
       "id": "EMXYC7OUjEHKY",
       "title": "Agentic Labs: UiPath Community Developer Playground​",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Lab",
       "day": "2025-10-01",
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
@@ -567,7 +567,7 @@
     {
       "id": "FtIGgUAalzmHP",
       "title": "Agentic Labs: UiPath Community Developer Playground​",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Lab",
       "day": "2025-10-01",
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
@@ -580,7 +580,7 @@
     {
       "id": "OMKCR0vC6DXdu",
       "title": "Agentic Labs: UiPath Community Developer Playground​ ",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Lab",
       "day": "2025-10-01",
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
@@ -593,7 +593,7 @@
     {
       "id": "tzanfz79EWsaW",
       "title": "Cross-Industry Panel Discussions: Orchestrating People, Strategy and Technology to Amplify ROI",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Summit",
       "day": "2025-10-01",
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
@@ -606,7 +606,7 @@
     {
       "id": "hMeVJufFe9bPX",
       "title": "FUSION Financial Services Summit: Delivering Transformative Business Value Today",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE",
+      "track": "Summit",
       "day": "2025-10-01",
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
@@ -658,7 +658,7 @@
     {
       "id": "kJg1RGXAtTSXA",
       "title": "Manufacturing Industry Summit: Orchestrating the Future of Manufacturing and CPG: Breaking the Industry 3.9 Rut",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Summit",
       "day": "2025-10-01",
       "start": "2025-10-01T09:00:00.000-07:00",
       "end": "2025-10-01T12:00:00.000-07:00",
@@ -684,7 +684,7 @@
     {
       "id": "ng2EgwGWbmeb0",
       "title": "Lunch and Hosted Roundtable Topic Discussions",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Breakout",
       "day": "2025-10-01",
       "start": "2025-10-01T12:00:00.000-07:00",
       "end": "2025-10-01T13:30:00.000-07:00",
@@ -697,7 +697,7 @@
     {
       "id": "XWmRObUO36Ur4",
       "title": "Meet the Experts",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Agentic Arena",
       "day": "2025-10-01",
       "start": "2025-10-01T12:30:00.000-07:00",
       "end": "2025-10-01T15:30:00.000-07:00",
@@ -710,7 +710,7 @@
     {
       "id": "MI3pBJDbFYeNG",
       "title": "Welcome to Day Two",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Breakout",
       "day": "2025-10-01",
       "start": "2025-10-01T15:30:00.000-07:00",
       "end": "2025-10-01T15:35:00.000-07:00",
@@ -723,7 +723,7 @@
     {
       "id": "Md5DObWRaQKkX",
       "title": "The Impact of Enterprise-Wide Agentic Automation",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Breakout",
       "day": "2025-10-01",
       "start": "2025-10-01T15:35:00.000-07:00",
       "end": "2025-10-01T16:20:00.000-07:00",
@@ -736,7 +736,7 @@
     {
       "id": "GlcG3SiZeUO2z",
       "title": "The Future of Agentic Automation Experts Panel",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Breakout",
       "day": "2025-10-01",
       "start": "2025-10-01T16:20:00.000-07:00",
       "end": "2025-10-01T17:00:00.000-07:00",
@@ -749,7 +749,7 @@
     {
       "id": "mAbHuSIYZQ3DZ",
       "title": "FUSION Mingle Dinner",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Break",
       "day": "2025-10-01",
       "start": "2025-10-01T17:00:00.000-07:00",
       "end": "2025-10-01T18:45:00.000-07:00",
@@ -762,7 +762,7 @@
     {
       "id": "CR3aikMbQFNEq",
       "title": "Exclusive Evening Experience: Awakening Show at Wynn Las Vegas",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Break",
       "day": "2025-10-01",
       "start": "2025-10-01T19:20:00.000-07:00",
       "end": "2025-10-01T21:00:00.000-07:00",
@@ -775,7 +775,7 @@
     {
       "id": "B6197L2vZz69k",
       "title": "Breakfast",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Break",
       "day": "2025-10-02",
       "start": "2025-10-02T06:59:59.999-07:00",
       "end": "2025-10-02T08:00:00.000-07:00",
@@ -788,7 +788,7 @@
     {
       "id": "N5NgnKE2Mo37b",
       "title": "Registration",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Registration",
       "day": "2025-10-02",
       "start": "2025-10-02T06:59:59.999-07:00",
       "end": "2025-10-02T12:00:00.000-07:00",
@@ -801,7 +801,7 @@
     {
       "id": "U25SahwOj3FXL",
       "title": "Agentic Labs: Agentic Testing Is Here – Meet Test Cloud",
-      "track": "API Workflows,Autopilot,Coded Agent,UI Agent",
+      "track": "Lab",
       "day": "2025-10-02",
       "start": "2025-10-02T08:29:59.999-07:00",
       "end": "2025-10-02T10:30:00.000-07:00",
@@ -814,7 +814,7 @@
     {
       "id": "dYPnvdDYDPYqv",
       "title": "Agentic Labs: Build Enterprise-Grade AI Agents with UiPath, a Low-Code Workshop",
-      "track": "Workshop",
+      "track": "Lab",
       "day": "2025-10-02",
       "start": "2025-10-02T08:29:59.999-07:00",
       "end": "2025-10-02T10:30:00.000-07:00",
@@ -827,7 +827,7 @@
     {
       "id": "dnrNnvN2a6h9q",
       "title": "Agentic Labs: Build and Deploy Custom Agents with UiPath",
-      "track": "Pro-code developer",
+      "track": "Lab",
       "day": "2025-10-02",
       "start": "2025-10-02T08:29:59.999-07:00",
       "end": "2025-10-02T10:30:00.000-07:00",
@@ -840,7 +840,7 @@
     {
       "id": "4YX3sGDLsAHnu",
       "title": "Agentic Labs: Data-Driven Agentic Process Optimization with UiPath Process Intelligence",
-      "track": "API Workflows,Maestro,Orchestrator,Process Mining",
+      "track": "Lab",
       "day": "2025-10-02",
       "start": "2025-10-02T08:29:59.999-07:00",
       "end": "2025-10-02T10:30:00.000-07:00",
@@ -853,7 +853,7 @@
     {
       "id": "2Tx8zQJUqoxEB",
       "title": "Agentic Labs: Fuel Your Agents: Build API Automations That Drive Intelligent Action",
-      "track": "API Workflows,Coded Agent,Data Fabric,Integration Service",
+      "track": "Lab",
       "day": "2025-10-02",
       "start": "2025-10-02T08:29:59.999-07:00",
       "end": "2025-10-02T10:30:00.000-07:00",
@@ -866,7 +866,7 @@
     {
       "id": "QXlxMr23pNVMX",
       "title": "Coffee Break",
-      "track": "Networking,Workshop",
+      "track": "Break",
       "day": "2025-10-02",
       "start": "2025-10-02T10:30:00.000-07:00",
       "end": "2025-10-02T10:50:00.000-07:00",
@@ -879,7 +879,7 @@
     {
       "id": "9G74LpVFhchgq",
       "title": "Agentic Labs: Agent Tooling - Unlock Complex and Unstructured Documents with UiPath IXP, a New GenAI Experience",
-      "track": "IXP",
+      "track": "Lab",
       "day": "2025-10-02",
       "start": "2025-10-02T11:00:00.000-07:00",
       "end": "2025-10-02T12:59:59.999-07:00",
@@ -892,7 +892,7 @@
     {
       "id": "WPMzU3dsQG1fw",
       "title": "Agentic Labs: Agent-Ready RPA: Powered by Healing Agent, ScreenPlay, and Autopilot",
-      "track": "Workshop",
+      "track": "Lab",
       "day": "2025-10-02",
       "start": "2025-10-02T11:00:00.000-07:00",
       "end": "2025-10-02T12:59:59.999-07:00",
@@ -905,7 +905,7 @@
     {
       "id": "hiCDuLkCDQlzB",
       "title": "Agentic Labs: Build Enterprise-Grade AI Agents with UiPath, a Low-Code Workshop (Repeat Session)",
-      "track": "Low-code developer",
+      "track": "Lab",
       "day": "2025-10-02",
       "start": "2025-10-02T11:00:00.000-07:00",
       "end": "2025-10-02T12:59:59.999-07:00",
@@ -918,7 +918,7 @@
     {
       "id": "Le6VwORCPKk5n",
       "title": "Agentic Labs: Build, Operate, and Optimize Your First Agentic Process",
-      "track": "Agent Builder,API Workflows,Maestro,Orchestrator,Process Mining,UI Agent",
+      "track": "Lab",
       "day": "2025-10-02",
       "start": "2025-10-02T11:00:00.000-07:00",
       "end": "2025-10-02T12:59:59.999-07:00",
@@ -931,7 +931,7 @@
     {
       "id": "AoDWtGHsuiRVm",
       "title": "Agentic Labs: From Performance to Pipeline – Build Next-Gen Testing Agents",
-      "track": "Agent Builder",
+      "track": "Lab",
       "day": "2025-10-02",
       "start": "2025-10-02T11:00:00.000-07:00",
       "end": "2025-10-02T12:59:59.999-07:00",
@@ -944,7 +944,7 @@
     {
       "id": "2z5dXCayNkaZF",
       "title": "Buffet Lunch",
-      "track": "Chief AI Officer (CAIO),Chief Innovation Officer (CIO),Chief Technology Officer (CTO),Chief Enterprise Architect (CEA),Chief Financial Officer (CFO),Chief Procurement Officer (CPO),Chief Operations Officer (COO),Head of Innovation/Transformation,Head of Automation CoE,Head of AI CoE,Head of IT,Pro-code developer,Low-code developer,RPA developer,Tester,Business Analyst,Solution Engineer/Architect,Process Owner",
+      "track": "Break",
       "day": "2025-10-02",
       "start": "2025-10-02T12:59:59.999-07:00",
       "end": "2025-10-02T14:00:00.000-07:00",
