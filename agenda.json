@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "generatedAt": "2025-09-03T03:09:23.440Z",
+    "generatedAt": "2025-09-03T03:15:23.328Z",
     "source": "FUSION Agenda_082625.xlsx",
-    "totalSessions": 73
+    "totalSessions": 72
   },
   "sessions": [
     {
@@ -16,19 +16,6 @@
       "speaker": "—",
       "level": "All",
       "description": "Check in at registration to unlock your full FUSION experience. Registration is on Level 1, right across from the lounge in the conference area. Want to stay one step ahead? Download the UiPath Events mobile app and get the inside scoop before the action begins.",
-      "regEnabled": true
-    },
-    {
-      "id": "W1a0h6QgNOG1O",
-      "title": "Partner FUSION: Why Partners Who Lead with Agentic Automation Will Win",
-      "track": "Breakout",
-      "day": "2025-09-29",
-      "start": "2025-09-29T12:59:59.999-07:00",
-      "end": "2025-09-29T17:00:00.000-07:00",
-      "room": "Main Level, Latour Ballroom 1-4",
-      "speaker": "Cassidy Henry (Moderator); Daniel Dines (Speaker); Graham Sheldon (Speaker); Ashim Gupta (Speaker); Ben Fiechtner (Speaker); Anthony Delafuente (Speaker); Laurence Dixon (Speaker); Chris Poole (Speaker)",
-      "level": "All",
-      "description": "*This session is for partners only.*",
       "regEnabled": true
     },
     {
