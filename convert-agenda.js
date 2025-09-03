@@ -84,12 +84,22 @@ try {
     }
     
     // Map columns based on Excel structure investigation:
-    // Column 26: 4th Filter Tags - contains track categories (Registration, Networking, Keynote, etc.)
+    // Column 20: 1st Filter Name - contains clean track categories (Lab, Workshop, Keynote, Registration, etc.)
     // Column 33: General level categories - contains high-level groupings (Agentic Labs, Cross Industry Summit, etc.)
     // Column 8: Sessions Main Location - room information
-    const track = row[26] || 'General';  // 4th Filter Tags - session track/type
+    let track = row[20] || 'General';    // 1st Filter Name - session track/type
     const level = row[33] || 'All';      // General level categories - session level/audience
     const room = row[8] || '—';          // Sessions Main Location
+    
+    // Clean up problematic column 20 values (long job title lists)
+    if (track.includes('Chief') || track.includes(',')) {
+      // For long job title lists, use "Lab" for Agentic Labs sessions
+      if (title.toString().startsWith('Agentic Labs:')) {
+        track = 'Lab';
+      } else {
+        track = 'General';
+      }
+    }
     
     const session = {
       id: id.toString(),
