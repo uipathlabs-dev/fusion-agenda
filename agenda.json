@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "generatedAt": "2025-09-03T14:04:22.663Z",
+    "generatedAt": "2025-09-03T14:18:36.043Z",
     "source": "agenda.xlsx",
     "totalSessions": 73
   },
@@ -14,7 +14,7 @@
       "end": "2025-09-29T18:00:00.000-07:00",
       "room": "Main Level, Sunset Promenade",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Check in at registration to unlock your full FUSION experience. Registration is on Level 1, right across from the lounge in the conference area. Want to stay one step ahead? Download the UiPath Events mobile app and get the inside scoop before the action begins.",
       "regEnabled": true
     },
@@ -40,7 +40,7 @@
       "end": "2025-09-29T20:00:00.000-07:00",
       "room": "Lower Level, Event Pavilion",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Get ready to mix, mingle, and ignite ideas! Join us for curated bites, crafted drinks, and lively conversation as we launch FUSION. Meet the trailblazers redefining the future of agentic AI and automation—this is your chance to connect, be inspired, and celebrate innovation.",
       "regEnabled": true
     },
@@ -53,7 +53,7 @@
       "end": "2025-09-30T18:00:00.000-07:00",
       "room": "Main Level, Sunset Promenade",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Check in at registration to unlock your full FUSION experience. Registration is on Level 1, right across from the lounge in the conference area. Want to stay one step ahead? Download the UiPath Events mobile app and get the inside scoop before the action begins.",
       "regEnabled": true
     },
@@ -66,7 +66,7 @@
       "end": "2025-09-30T09:00:00.000-07:00",
       "room": "Main Level, Lafite Ballroom",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Fuel up and connect! Join us for a networking breakfast with fellow agentic AI and automation professionals before the FUSION keynotes begin. Vegetarian, gluten-free, and dairy-free options are available—just ask. ",
       "regEnabled": true
     },
@@ -79,7 +79,7 @@
       "end": "2025-09-30T09:10:00.000-07:00",
       "room": "Upper Level, Keynote Theater, Cristal Ballroom 5-8",
       "speaker": "Ben Fiechtner (Keynote)",
-      "level": "Keynote",
+      "level": "All",
       "description": "Join Ben Fiechtner, President of the Americas, as he sets the stage for FUSION with a dynamic preview of what's in store over the next two days.",
       "regEnabled": true
     },
@@ -92,7 +92,7 @@
       "end": "2025-09-30T10:00:00.000-07:00",
       "room": "Upper Level, Keynote Theater, Cristal Ballroom 5-8",
       "speaker": "Daniel Dines (Keynote); Rajat Kalia (Speaker); Aaron White (Speaker); Oliver Pfeil (Speaker)",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "In this keynote, UiPath CEO and Co-Founder Daniel Dines unveils a bold vision for an agentic future—where autonomous AI agents, robots, and people are orchestrated with governance and control to transform how work gets done and deliver enterprise-scale ROI. ",
       "regEnabled": true
     },
@@ -105,7 +105,7 @@
       "end": "2025-09-30T11:00:00.000-07:00",
       "room": "Upper Level, Keynote Theater, Cristal Ballroom 5-8",
       "speaker": "Graham Sheldon (Keynote); Raghu Malpani (Keynote)",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Join UiPath Chief Product Officer Graham Sheldon and UiPath Chief Technology Officer Ragu Malpani as they share how organizations are already deploying agentic automation to solve real business challenges—unlocking value today with AI-powered agents, reusable components, and enterprise-grade orchestration. ",
       "regEnabled": true
     },
@@ -118,7 +118,7 @@
       "end": "2025-09-30T11:30:00.000-07:00",
       "room": "Upper Level, Keynote Theater, Cristal Ballroom 5-8",
       "speaker": "Place Holder5 (Keynote)",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Craig Le Clair shares his view of agentic automation, enabled by AI agents, as a significant shift that will reshape enterprise workflow automation and potentially lead to hypergrowth. He’ll discuss findings and implications of the agent experience (AX) derived from new research and his new book, “Random Acts of Automation.”",
       "regEnabled": true
     },
@@ -131,7 +131,7 @@
       "end": "2025-09-30T13:00:00.000-07:00",
       "room": "Main Level, Lafite Ballroom",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Join us in the Lafite Ballroom for a seated lunch paired with interactive roundtable discussions led by industry peers. These expert-hosted conversations are designed to spark fresh ideas and insightful dialogue around the future of agentic AI and automation. \r\n\r\nVegetarian, gluten-free, and dairy-free options are available upon request.",
       "regEnabled": true
     },
@@ -157,7 +157,7 @@
       "end": "2025-09-30T12:25:00.000-07:00",
       "room": "Main Level, Latour Ballroom 1-4",
       "speaker": "Arun Mehta (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "This keynote connects Process Intelligence with Maestro to show how organizations move from seeing how work really flows to coordinating action at scale. We will spotlight what is new, why it matters for outcomes across teams, and where leaders should start.\r\n\r\nPre-Requisites: \r\n\r\n Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -170,7 +170,7 @@
       "end": "2025-09-30T12:55:00.000-07:00",
       "room": "Lower Level, Bandol 2",
       "speaker": "Alexandru Roman (Speaker); Gunter Desouter (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "This keynote explains how API Workflows and Data Fabric provide governed access to systems and unify live data so agents, robots, and people can act together. We will frame the strategy, share the updates, and outline where to begin. \r\n\r\nPre-Requisites: \r\n\r\n Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -183,7 +183,7 @@
       "end": "2025-09-30T15:00:00.000-07:00",
       "room": "Upper Level, Agentic Arena, Cristal Ballroom 1-4",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Step into the Agentic Arena — where innovation meets expertise.\r\nDiscover how agentic automation is reshaping the future of work, guided by the sharpest minds in AI transformation. UiPath and our top-tier partners will be there to dive into your toughest questions, explore your biggest challenges, and share insights you won't hear anywhere else. ",
       "regEnabled": true
     },
@@ -196,7 +196,7 @@
       "end": "2025-09-30T12:55:00.000-07:00",
       "room": "Main Level, Latour Ballroom 1-4",
       "speaker": "Mark Geene (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "This keynote outlines how Agents, IXP, packaged Solutions, and Governance and Trust work together to deliver agentic outcomes at enterprise scale. We will clarify the product direction, the updates that matter, and the first steps to take, with a clear view of how guardrails, data protection, and unified audit provide confidence and control. \r\n\r\nPre-Requisites: \r\n\r\n Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -235,7 +235,7 @@
       "end": "2025-09-30T13:25:00.000-07:00",
       "room": "Lower Level, Castillion",
       "speaker": "Imran Aziz (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "From use case to impact\r\n\r\nBuilding on the keynote, this session explains how packaged Solutions accelerate time to value with pre integrated, industry ready patterns. Designed for business and technical leaders, we will clarify what is new, why it matters, and where to start. You will see how Solutions for banking, healthcare, retail, and manufacturing deliver measurable outcomes and how to adapt them to your environment.\r\n\r\nPre-Requisites: \r\n\r\n Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -248,7 +248,7 @@
       "end": "2025-09-30T13:25:00.000-07:00",
       "room": "Lower Level, Bandol 2",
       "speaker": "Guy Vanwert (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "From data to action\r\n\r\nBuilding on the keynote, this session explains how API Workflows provide governed, reusable automation logic so agents, robots, and people can act together across systems. Designed for business and technical leaders, we will clarify what is new, why it matters, and where to start. You will see how composable API flows connect live data to real time action through grounded demos.\r\n\r\nPre-Requisites: \r\n\r\n Seats are limited to ensure a high-touch experience—secure yours early. ",
       "regEnabled": true
     },
@@ -261,7 +261,7 @@
       "end": "2025-09-30T13:55:00.000-07:00",
       "room": "Lower Level, Fleurie",
       "speaker": "Mounish Kothapally (Speaker); Anvita Dekhane (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "From design to orchestration\r\n\r\nBuilding on the keynote, this session explains how Maestro coordinates multi step work at scale so people, agents, and robots act together. Designed for business and technical leaders, we will clarify what is new, why it matters, and where to start. You will see grounded demos that show how to design workflows, manage cases, and run orchestrated processes with real time oversight.\r\n\r\nPre-Requisites: \r\n\r\n Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -300,7 +300,7 @@
       "end": "2025-09-30T13:55:00.000-07:00",
       "room": "Lower Level, Bandol 2",
       "speaker": "Alexandru Roman (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "From UI to execution\r\n\r\nBuilding on the keynote, this session explains how RPA Workflows in Studio Web automate user interfaces and complement API Workflows so agents, robots, and people can act together across systems. Designed for business and technical leaders, we will clarify when to use RPA versus API, why it matters, and where to start. You will see how to move from an idea to a running workflow with the right triggers, secure connections, and repeatable patterns.\r\n\r\nPre-Requisites: \r\n\r\n Seats are limited to ensure a high-touch experience—secure yours early. ",
       "regEnabled": true
     },
@@ -313,7 +313,7 @@
       "end": "2025-09-30T14:25:00.000-07:00",
       "room": "Lower Level, Castillion",
       "speaker": "Erik Bohman (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "From interaction to action\r\n\r\nBuilding on the keynote, this session explains how IXP turns unstructured inputs and multichannel interactions into coordinated action. Designed for business and technical leaders, we will clarify what is new, why it matters, and where to start. You will see how to design and deliver agent experiences that connect emails, documents, and conversations to enterprise workflows.\r\n\r\nPre-Requisites: \r\n\r\n Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -339,7 +339,7 @@
       "end": "2025-09-30T14:25:00.000-07:00",
       "room": "Lower Level, Bandol 2",
       "speaker": "—",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "From data to action\r\n\r\nBuilding on the keynote, this session explains how Data Fabric unifies live data without duplication and powers seamless orchestration across apps, automations, and agents. Designed for business and technical leaders, we will clarify what is new, why it matters, and where to start. You will see how unified data models and in line transformations back agent interactions and enterprise workflows.\r\n\r\nPre-Requisites: \r\n\r\n Seats are limited to ensure a high-touch experience—secure yours early. ",
       "regEnabled": true
     },
@@ -352,7 +352,7 @@
       "end": "2025-09-30T14:55:00.000-07:00",
       "room": "Lower Level, Fleurie",
       "speaker": "Zach Eslami (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "From design to execution\r\n\r\nBuilding on the keynote, this session explains how Agents enable people and systems to act together at enterprise scale. Designed for business and technical leaders, we will clarify what is new, why it matters, and where to start. You will see how to compose, govern, and operate agents across core systems through grounded demos.\r\n\r\nPre-Requisites: \r\n\r\n Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -443,7 +443,7 @@
       "end": "2025-09-30T16:20:00.000-07:00",
       "room": "Main Level, FUSION Advantage, Latour Ballroom 1-4",
       "speaker": "Bob Sacunas (Moderator); Emily Krohne (Speaker); Cmiranda  (Speaker); Alfred Ochoa (Speaker)",
-      "level": "Fusion Advantage Theater",
+      "level": "All",
       "description": "Customers today expect fast, personalized answers. Industry leaders like WEX, SCE, and Evergen are showing how agentic automation helps make that possible in the contact center—each in their own way. From accelerating email replies in financial services, to guiding agents through complex utility billing conversations, to matching patients with donor tissue faster in healthcare, they’re finding smarter ways to meet rising expectations.\r\n\r\n\r\n\r\n\r\nJoin the session to hear their stories, lessons learned, and ideas you can run with to unlock insights and scale success for your customers.",
       "regEnabled": true
     },
@@ -495,7 +495,7 @@
       "end": "2025-09-30T19:00:00.000-07:00",
       "room": "Upper Level, Agentic Arena, Cristal Ballroom 1-4",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Wrap up your day in the Agentic Arena with a drink, light bites, and great company. This lively hour brings together agentic AI and automation practitioners, UiPath experts, and partners for relaxed conversations and meaningful connections. It’s your chance to swap ideas, spark collaborations, and engage with industry leaders—all in one friendly, after-hours setting. ",
       "regEnabled": true
     },
@@ -508,7 +508,7 @@
       "end": "2025-09-30T21:00:00.000-07:00",
       "room": "—",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Keep the momentum going with partner-sponsored industry networking happy hours — the perfect way to relax, connect, and celebrate with your community. \r\n\r\n•Commercial/Cross Industry \r\n•Financial Services \r\n•Healthcare \r\n•LATAM \r\n•Manufacturing, Media, Oil  & Gas & Utilities \r\n•Public Sector\r\nWe’re grateful to our outstanding partners—Ashling, Beecker, Genzeon, Greenlight, Ingram, Linko, Lydonia, Naviant, qBotica, Roboyo, Smarthis, TQA, and TSP—whose support makes these events possible.\r\n\r\n\r\n",
       "regEnabled": true
     },
@@ -521,7 +521,7 @@
       "end": "2025-10-01T17:00:00.000-07:00",
       "room": "Main Level, Sunset Promenade",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Check in at registration to unlock your full FUSION experience. Registration is on Level 1, right across from the lounge in the conference area. Want to stay one step ahead? Download the UiPath Events mobile app and get the inside scoop before the action begins.",
       "regEnabled": true
     },
@@ -534,7 +534,7 @@
       "end": "2025-10-01T09:00:00.000-07:00",
       "room": "Main Level, Latour Ballroom 1-4",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Fuel up and connect! Join us for a networking breakfast with fellow agentic AI and automation professionals before our industry summits and workshops begin. Vegetarian, gluten-free, and dairy-free options are available—just ask.",
       "regEnabled": true
     },
@@ -560,7 +560,7 @@
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "Lower Level, Bandol 2",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "Agentic Labs",
       "description": "In this open lab you will explore UiPath Playground, a curated environment of vertical and horizontal solutions powered by Agent Builder, Maestro, Studio Web, and Orchestrator. Set your own pace as you dive into complete solutions, then step into UiPath Labs to customize and extend them. Product experts are available throughout to answer questions, unblock issues, and share best practices.\r\n\r\nWhat to Expect: \r\n\r\n•Explore curated solutions in Playground and see core services working together in real scenarios\r\n•Customize a solution in UiPath Labs with guided examples and optional templates\r\n•Get hands on support from product experts and collaborate with peers as you build\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build. Seats are limited to ensure a high-touch experience—secure yours early. \r\n\r\n\r\n",
       "regEnabled": true
     },
@@ -573,7 +573,7 @@
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "Lower Level, Fleurie",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "Agentic Labs",
       "description": "In this open lab you will explore UiPath Playground, a curated environment of vertical and horizontal solutions powered by Agent Builder, Maestro, Studio Web, and Orchestrator. Set your own pace as you dive into complete solutions, then step into UiPath Labs to customize and extend them. Product experts are available throughout to answer questions, unblock issues, and share best practices.\r\n\r\nWhat to Expect: \r\n\r\n•Explore curated solutions in Playground and see core services working together in real scenarios\r\n•Customize a solution in UiPath Labs with guided examples and optional templates\r\n•Get hands on support from product experts and collaborate with peers as you build\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build. Seats are limited to ensure a high-touch experience—secure yours early. \r\n\r\n\r\n",
       "regEnabled": true
     },
@@ -586,7 +586,7 @@
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "Lower Level, Castillion",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "Agentic Labs",
       "description": "In this open lab you will explore UiPath Playground, a curated environment of vertical and horizontal solutions powered by Agent Builder, Maestro, Studio Web, and Orchestrator. Set your own pace as you dive into complete solutions, then step into UiPath Labs to customize and extend them. Product experts are available throughout to answer questions, unblock issues, and share best practices.\r\n\r\nWhat to Expect: \r\n\r\n•Explore curated solutions in Playground and see core services working together in real scenarios\r\n•Customize a solution in UiPath Labs with guided examples and optional templates\r\n•Get hands on support from product experts and collaborate with peers as you build\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build. Seats are limited to ensure a high-touch experience—secure yours early. \r\n\r\n\r\n",
       "regEnabled": true
     },
@@ -599,7 +599,7 @@
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "Lower Level, Musigny 2",
       "speaker": "Caleb Jones (Speaker); Bob Sacunas (Speaker); Siddharth Shah (Speaker); Vinay Gangidi (Speaker); Wykita Riley (Speaker); Matt Dussling (Speaker); Aaron Goodrich (Speaker); Flosshilda Labrado (Speaker)",
-      "level": "Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing",
+      "level": "Cross Industry Summit",
       "description": "9:00 - Welcome\r\n\r\nJoin Caleb Jones, UiPath Strategic Engagement Executive, for a brief welcome and introduction of the panel participants ad topic.\r\n\r\n9:05 - Breaking Silos: Intelligent Process Optimization \r\n\r\nThis panel brings together leaders who’ve transformed operations in finance, legal, and marketing using agentic automation. Hear how they’ve deployed AI-driven solutions that stay compliant and still deliver real ROI in highly regulated spaces. Discover how to spot high-impact opportunities and build unified strategies for end-to-end process transformation.  \r\n\r\n9:50 - Break\r\n\r\n10:00 - Welcome\r\n\r\n10:05 - Seamless CX: The Agentic Customer Journey \r\n\r\nSee how top organizations are using agentic automation to reimagine customer experiences. Leaders will share how AI agents are helping personalize interactions, simplify service, and stay one step ahead of customer needs. Learn how they’re combining smart automation with the human touch—and building systems that get better with every interaction.  \r\n\r\n10:50 - Break\r\n\r\n11:00 - Welcome\r\n\r\n11:05 - Intelligent Quality Assurance: The New Rules in Test Automation \r\n\r\nWith software complexity on the rise, autonomous AI agents are changing the game in QA. Experts will show how agentic testing strategies bring together human insight and AI speed to boost test coverage and shorten feedback loops. Get practical tips on plugging agentic testing into your CI/CD pipelines and scaling smart testing frameworks that grow with your needs.  ",
       "regEnabled": true
     },
@@ -612,7 +612,7 @@
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "Main Level, Latour Ballroom 1-4",
       "speaker": "Rajat Kalia (Speaker); Emily Krohne (Speaker); Jairo Quiros (Speaker); Amin Kermali (Speaker); Eric Bouchard (Speaker); Andrea Simpson (Speaker); Paru Puttanna (Speaker); Janna Riggle (Speaker); Andrew Szabo (Speaker); Smriti Gupta (Speaker); James Dickson (Speaker); Eric Streem (Speaker); Betty Kim (Speaker)",
-      "level": "Finance & Accounting",
+      "level": "Financial Services Summit",
       "description": "Explore how leading financial services organizations are scaling automation and AI to solve complex challenges and deliver value across the enterprise—without waiting for specialized talent or new infrastructure. This summit dives into real-world examples of how agentic automation delivers measurable outcomes in compliance, customer experience, onboarding, and more. With a full lineup of live demos, candid leadership discussions from your financial services industry peers, and production-ready stories, you’ll leave with clear strategies and proven approaches to accelerate transformation using the resources you already have.\r\n\r\n9:00 - Welcome and Housekeeping\r\n\r\nKick off the day with key themes: AI, automation, and transformation in financial services, plus an overview of sessions and how to engage.\r\n\r\n9:05 - Tech Showcase: “Orchestrating the Path to Production: Agentic Automation for Scale\" \r\n\r\nGuided by Accenture and rooted in demonstrable visual demos: This session will first provide an overview of the changing automation landscape, and then, using a real-world demo, showcase how agentic automation unlocks new possibilities for operational efficiency, customer experience, and compliance in financial services. \r\n\r\n9:35 - Executive Fireside Chat: Built to Scale: Operationalizing AI and Agentic Automation \r\n\r\nA candid conversation on what it takes to scale AI and automation across the enterprise, with lessons in technology alignment, strategy, and execution. \r\n\r\n10:05 - Panel: From RPA to Agentic – Leading the Organizational Shift \r\n\r\nThis panel brings together senior automation leaders to share how their organizations are evolving from structured RPA to intelligent, agentic automation. We’ll explore lessons learned, organizational hurdles, and strategic plays that helped them win executive buy-in and drive adoption.\r\n\r\n10:35 - Spotlights: Production-Ready Stories \r\n\r\nThese 10-minute customer spotlight sessions will highlight real-world, production-grade deployments of agentic automation. Presenters will walk through specific challenges, implementation approaches, and measurable business results. \r\n\r\n11:10 - Commercial Lending QA/QC - Product Launch\r\n\r\n11:30 - How are AI and Automation Teams Coming Together \r\n\r\nAs AI initiatives gain momentum across financial institutions, many remain siloed from the RPA and automation programs that could help them scale. This session explores how organizations are evolving their operating models to bring AI and automation teams together—eliminating redundancy, accelerating time to value, and delivering unified business impact. \r\n\r\n11:50 - Closing Remarks / Awards \r\n\r\nThe final session will tie together key themes from the day—agentic automation, business transformation, and the power of convergence. We’ll reflect on the most resonant insights, acknowledge standout contributions, and preview what comes next for our financial services community. ",
       "regEnabled": true
     },
@@ -664,7 +664,7 @@
       "end": "2025-10-01T12:00:00.000-07:00",
       "room": "Lower Level, Avignon 1",
       "speaker": "Anthony Delafuente (Speaker); Paul Boris (Speaker); Ronda Walzer (Speaker); Leslie Mccalla (Speaker); Aaron Goodrich (Speaker); Robert Schneider (Speaker); Mioffe  (Speaker); Keith Martin (Speaker); Dhruv Asher (Speaker)",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "Manufacturing Industry Summit",
       "description": "Manufacturers aren’t experimenting with automation anymore; they’re scaling it. This summit dives into how manufacturing organizations are applying agentic automation and Gen AI to connect operations, boost agility, and drive real results across supply chain, production, and quality. Through live demos, curated panel discussions, and production-ready use cases, you’ll see how teams in manufacturing are reducing downtime, speeding up decision-making, and empowering the workforce. Built for leaders in operations, supply chain, IT, and digital transformation, this summit also offers plenty of chances to connect with peers and UiPath experts.\r\n\r\n9:00 - Orchestrating the Future of Manufacturing and CPG \r\n\r\nWelcome\r\n\r\n9:05 - State of Manufacturing: Breaking the Industry 3.9 Rut Featuring Love’s Travel Stores\r\n\r\nAn in-depth analysis of current manufacturing challenges and the industry's position at the crossroads of 3.9 and true Industry 4.0 transformation. See how Love’s is having tremendous success combing test automation with physical robots to test their point-of-sale systems.  \r\n\r\n9:30 - Leveraging Automation: See How to Enter the Agentic Space Featuring Conagra Brands\r\n\r\nDiscover how leading manufacturers are qualifying and implementing agentic programs to break down silos and create unified visibility across operations.  \r\n\r\n9:55 - Getting over Your Nerves: First Steps Into Agentic Orchestration, Featuring Wesco Distribution\r\n\r\nPractical case studies showcasing how big ideas are becoming reality through intelligent automation.  \r\n\r\nMore to come",
       "regEnabled": true
     },
@@ -690,7 +690,7 @@
       "end": "2025-10-01T13:30:00.000-07:00",
       "room": "Main Level, Lafite Ballroom",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Join us in the Lafite Ballroom for a seated lunch paired with interactive roundtable discussions led by industry peers. These expert-hosted conversations are designed to spark fresh ideas and insightful dialogue around the future of agentic AI and automation. \r\n\r\nVegetarian, gluten-free, and dairy-free options are available upon request.",
       "regEnabled": true
     },
@@ -703,7 +703,7 @@
       "end": "2025-10-01T15:30:00.000-07:00",
       "room": "Upper Level, Agentic Arena, Cristal Ballroom 1-4",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Step into the Agentic Arena — where innovation meets expertise.\r\nDiscover how agentic automation is reshaping the future of work, guided by the sharpest minds in AI transformation. UiPath and our top-tier partners will be there to dive into your toughest questions, explore your biggest challenges, and share insights you won't hear anywhere else.",
       "regEnabled": true
     },
@@ -716,7 +716,7 @@
       "end": "2025-10-01T15:35:00.000-07:00",
       "room": "Upper Level, Keynote Theater, Cristal Ballroom 5-8",
       "speaker": "Ben Fiechtner (Keynote)",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Join Ben Fiechtner, President of the Americas, as he kicks off our afternoon keynotes exploring the breakthroughs, trends, and bold moves driving the next wave of agentic AI and automation. ",
       "regEnabled": true
     },
@@ -729,7 +729,7 @@
       "end": "2025-10-01T16:20:00.000-07:00",
       "room": "Upper Level, Keynote Theater, Cristal Ballroom 5-8",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "AI represents the most transformative General Purpose Technology since the Industrial Revolution, with agentic AI having the potential for automating work across enterprises. Early studies found productivity gains of 15-50% for customer service agents, software engineers, and managers, but these micro-level benefits have not yet translated to economy-wide productivity growth, suggesting we are in the early stages of a “productivity J-curve”. Erik will discuss that, to harness AI, enterprises must more strategically deploy AI tools and agents across business processes and establish better measurement frameworks to identify and quantify their rapidly evolving benefits. ",
       "regEnabled": true
     },
@@ -742,7 +742,7 @@
       "end": "2025-10-01T17:00:00.000-07:00",
       "room": "Upper Level, Keynote Theater, Cristal Ballroom 5-8",
       "speaker": "Raghu Malpani (Panelist); Taqi Jaffri (Moderator); Placeholder  (Panelist)",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "",
       "regEnabled": true
     },
@@ -755,7 +755,7 @@
       "end": "2025-10-01T18:45:00.000-07:00",
       "room": "Main Level, Lafite Ballroom",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Join us for our FUSION mingle dinner where you can unwind, connect, and reflect with fellow professionals over exquisite cuisine in a relaxed, elegant setting. It’s the perfect finale to a day of inspiration—fueling fresh ideas and forging meaningful connections. network with industry peers, exchange ideas, and build valuable relationships in a relaxed, elegant setting.",
       "regEnabled": true
     },
@@ -768,7 +768,7 @@
       "end": "2025-10-01T21:00:00.000-07:00",
       "room": "—",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Prepare to be captivated by the mesmerizing Awakening show at Wynn Las Vegas—a stunning fusion of acrobatics, music, and visual artistry that promises to inspire and awe.\r\n\r\nThis exclusive event is the perfect blend of business and entertainment, designed to spark new conversations and leave a lasting impression. Don’t miss this opportunity to engage, unwind, and experience one of Las Vegas’s most acclaimed performances. ",
       "regEnabled": true
     },
@@ -781,7 +781,7 @@
       "end": "2025-10-02T08:00:00.000-07:00",
       "room": "Main Level, Lafite Ballroom",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "Fuel up and connect! Join us for a networking breakfast with fellow agentic AI and automation professionals before Agentic Labs begin. Vegetarian, gluten-free, and dairy-free options are available—just ask.",
       "regEnabled": true
     },
@@ -794,7 +794,7 @@
       "end": "2025-10-02T12:00:00.000-07:00",
       "room": "Main Level, Sunset Promenade",
       "speaker": "—",
-      "level": "Registration",
+      "level": "All",
       "description": "Check in at registration to unlock your full FUSION experience. Registration is on Level 1, right across from the lounge in the conference area. Want to stay one step ahead? Download the UiPath Events mobile app and get the inside scoop before the action begins.",
       "regEnabled": true
     },
@@ -807,7 +807,7 @@
       "end": "2025-10-02T10:30:00.000-07:00",
       "room": "Lower Level, Musigny",
       "speaker": "—",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "Get hands-on with UiPath Test Cloud and discover how agentic testing is changing the rules of QA. In this interactive lab, you’ll:\r\n\r\n•Use Autopilot for Testers to accelerate test case ideation and automation\r\n•Experience conversational test development powered by AI\r\n•Explore Test Data Management to provision, govern, and scale test data\r\n•Build self-healing test automations for apps, mobile, and system migration\r\n•Walk away with your first AI-powered test automation and see how fast you can break the bottleneck.\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build. Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -833,7 +833,7 @@
       "end": "2025-10-02T10:30:00.000-07:00",
       "room": "Lower Level, Avignon",
       "speaker": "Eusebiu Jecan (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "Package, publish, and deploy python-coded agents with UiPath. In this hands-on workshop, experts will guide attendees through how to get started quickly with UiPath code samples, including ready-to-use code snippets and templates that showcase automation patterns, integrations, and scenarios.\r\n\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build. This interactive session may require remote desktop access (VM access recommended). Seats are limited to ensure a high-touch experience—secure yours early. ",
       "regEnabled": true
     },
@@ -846,7 +846,7 @@
       "end": "2025-10-02T10:30:00.000-07:00",
       "room": "Lower Level, Meursault",
       "speaker": "—",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "This hands-on workshop walks you through every stage of implementing Process Intelligence with UiPath. From initial process discovery to analysis, optimization, and continuous monitoring.\r\n\r\nWorkshop highlights:\r\n\r\n•Practical integration experience: Participants will work with a Maestro Process Mining application, layering on additional data sources with a built-in integrated extractor (e.g., Salesforce), and getting full end-to-end process visibility to drive ongoing automation improvements\r\n•Automated process mapping: Learn how to automatically construct process maps using real data and import them into Maestro to kickstart agentic orchestration development\r\n•End-to-end implementation: Learn the complete workflow from data extraction to actionable insights\r\nYou'll learn how to:\r\n\r\n•Extract valuable insights from your process data to identify bottlenecks and optimization opportunities\r\n•Build comprehensive process maps that visualize your actual workflows\r\n•Implement real-time monitoring dashboards to track KPIs and performance metrics\r\n•Drive data-informed process improvements across your organization\r\n•Enrich agentic processes using Process Intelligence capabilities\r\n•Connect Maestro with external data sources to create a unified view of your business processes\r\nWorkshop focus:\r\n\r\nWe'll focus on enabling you to transform raw process data into actionable insights that drive real business value. By the end, you'll know how to leverage Process Intelligence capabilities to enhance your existing processes without disrupting operations, while maximizing efficiency, compliance, and business outcomes.\r\n\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build. This interactive session may require remote desktop access (VM access recommended). Seats are limited to ensure a high-touch experience—secure yours early. ",
       "regEnabled": true
     },
@@ -859,7 +859,7 @@
       "end": "2025-10-02T10:30:00.000-07:00",
       "room": "Lower Level, Bandol 2",
       "speaker": "Gunter Desouter (Speaker); Guy Vanwert (Speaker); Eusebiu Jecan (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "In this hands-on lab, you’ll learn how to build the invisible infrastructure that makes intelligent agents truly powerful: API automation.\r\n\r\nYou’ll get to design and deploy API-first or hybrid automations that give agents the ability to trigger actions, retrieve data, and orchestrate decisions across complex enterprise environments. With the help of Integration Service, Data Fabric, and MCP Server, you’ll create serverless, secure, and scalable automations that are instantly callable by agents, robots, or other workflows.\r\n\r\nBy the end of the session, you’ll walk away knowing how to build API automations to fuel the brains of your automation platform - your agents.\r\n\r\nWhat you’ll learn:\r\n\r\n•How agents and robots can use APIs to interact reliably with enterprise systems\r\n•How to design scalable, secure API-first automations using API Workflows\r\n•How to tap into systems fast using prebuilt or custom connectors\r\n•How to give agents real-time access to clean, unified data with Data Fabric\r\n•How to build your own MCP Server using the tools and automations you've used during the lab\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build something agents can use immediately. Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -885,7 +885,7 @@
       "end": "2025-10-02T13:00:00.000-07:00",
       "room": "Lower Level, Avignon",
       "speaker": "Daniel Lerner (Speaker); Erik Bohman (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "Increase automation rates, automate more, and extend end-to-end automation across new processes. Get hands-on with UiPath IXP, a multi-modal data classification and extraction experience that unlocks enterprise data. IXP turns all document and communications data into insight and action at speed and scale. This workshop focuses on the new 'Generative extraction for unstructured and complex documents capability'. During this practical session, IXP experts will guide attendees through the end-to-end deployment process — including model building, validation, and deployment. \r\n\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build. Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -911,7 +911,7 @@
       "end": "2025-10-02T13:00:00.000-07:00",
       "room": "Lower Level, Fleurie",
       "speaker": "Zach Eslami (Speaker)",
-      "level": "Workshop",
+      "level": "All",
       "description": "Bring the power of AI agents to your automation workflows in this hands-on, low-code workshop. Learn the complete agent development lifecycle: discover agents from existing Process Maps or templates, configure prompts and tools, evaluate performance with Agent Score and Autopilot, and deploy as automation workflows. Perfect for automation developers, process analysts, and anyone looking to add AI capabilities to their UiPath solutions—no coding experience required.  \r\n\r\n*We are running this workshop twice to ensure attendees can join.\r\n\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build. Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -924,7 +924,7 @@
       "end": "2025-10-02T13:00:00.000-07:00",
       "room": "Lower Level, Meursault",
       "speaker": "Mounish Kothapally (Speaker); Anvita Dekhane (Speaker)",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "This hands-on workshop walks you through every stage of creating a working agentic process with UiPath Maestro. From initial process design to deployment, monitoring, and continuous improvement.\r\n\r\nYou’ll learn how to:\r\n\r\n•Model processes that combine multiple agents, people, and automation tools\r\n•Manage live instances and handle escalations\r\n•Monitor performance and identify optimization opportunities\r\nWe’ll focus on enabling you to make agents reliable, safe, and scalable in real-world processes. By the end, you’ll know how to integrate agentic capabilities into your existing development workflow without sacrificing control, performance, or maintainability. \r\n\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build. Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -937,7 +937,7 @@
       "end": "2025-10-02T13:00:00.000-07:00",
       "room": "Lower Level, Musigny",
       "speaker": "—",
-      "level": "Agentic Labs",
+      "level": "All",
       "description": "Take your agentic testing skills to the next level in this advanced lab. You’ll:\r\n\r\n•Supercharge your Agentic Testing strategy with load and performance testing\r\n•Leverage Agent Builder to design testing agents that scale across apps and systems to deliver speed, scalability, and nonstop quality\r\n•Incorporate continuous testing directly into your CI/CD pipelines\r\nBy the end, you’ll have hands-on experience with performance testing, CI/CD-integrated continuous testing, and building agents with Agent Builder — three essential skills to shape the future of QA.\r\n\r\nPre-Requisites: \r\n\r\nBring your laptop and be ready to build. Seats are limited to ensure a high-touch experience—secure yours early.",
       "regEnabled": true
     },
@@ -950,7 +950,7 @@
       "end": "2025-10-02T14:00:00.000-07:00",
       "room": "Main Level, Lafite Ballroom",
       "speaker": "—",
-      "level": "Contact Center,Finance & Accounting,Human Resources,IT,Legal & Compliance,Sales & Marketing,Supply Chain",
+      "level": "All",
       "description": "",
       "regEnabled": true
     }

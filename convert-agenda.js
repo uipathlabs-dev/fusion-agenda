@@ -85,10 +85,10 @@ try {
     
     // Map columns based on Excel structure investigation:
     // Column 26: 4th Filter Tags - contains track categories (Registration, Networking, Keynote, etc.)
-    // Column 24: 3rd Filter Tags - contains department categories (Contact Center, Finance, etc.)
+    // Column 33: General level categories - contains high-level groupings (Agentic Labs, Cross Industry Summit, etc.)
     // Column 8: Sessions Main Location - room information
     const track = row[26] || 'General';  // 4th Filter Tags - session track/type
-    const level = row[24] || 'All';      // 3rd Filter Tags - department/level
+    const level = row[33] || 'All';      // General level categories - session level/audience
     const room = row[8] || '—';          // Sessions Main Location
     
     const session = {
