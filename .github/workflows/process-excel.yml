@@ -134,9 +134,11 @@ jobs:
               regEnabled = !visibilityStr.includes('hidden');
             }
             
-            // Get track, level from appropriate columns
-            const track = row[20] || 'General'; // 1st Filter column
-            const level = row[22] || 'All';     // 2nd Filter column
+            // Map columns based on Excel structure investigation:
+            // Column 26: 4th Filter Tags - contains track categories (Registration, Networking, Keynote, etc.)
+            // Column 24: 3rd Filter Tags - contains department categories (Contact Center, Finance, etc.)
+            const track = row[26] || 'General'; // 4th Filter Tags - session track/type  
+            const level = row[24] || 'All';     // 3rd Filter Tags - department/level
             
             const session = {
               id: id.toString(),

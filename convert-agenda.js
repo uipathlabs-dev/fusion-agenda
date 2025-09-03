@@ -30,7 +30,7 @@ try {
   // Get headers from row 3 (index 2)
   const allRows = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
   const headers = allRows[2]; // Row 3 contains headers
-  console.log('Headers:', headers.slice(0, 15)); // Show first 15 headers
+  console.log('Headers:', headers.slice(0, 10), '...'); // Show first 10 headers
   
   // Process each data row
   const sessions = [];
@@ -83,11 +83,13 @@ try {
       regEnabled = !visibilityStr.includes('hidden');
     }
     
-    // Look for additional columns that might contain track, level, etc.
-    // Based on the CSV structure, these might be in later columns
-    const track = row[20] || 'General'; // Approximate position for 1st Filter
-    const level = row[22] || 'All';     // Approximate position for 2nd Filter
-    const room = row[8] || '—';         // Sessions Main Location
+    // Map columns based on Excel structure investigation:
+    // Column 26: 4th Filter Tags - contains track categories (Registration, Networking, Keynote, etc.)
+    // Column 24: 3rd Filter Tags - contains department categories (Contact Center, Finance, etc.)
+    // Column 8: Sessions Main Location - room information
+    const track = row[26] || 'General';  // 4th Filter Tags - session track/type
+    const level = row[24] || 'All';      // 3rd Filter Tags - department/level
+    const room = row[8] || '—';          // Sessions Main Location
     
     const session = {
       id: id.toString(),
