@@ -51,7 +51,7 @@ jobs:
         console.log('Converting Excel Agenda sheet to JSON...');
         
         try {
-          // Find Excel files in data directory
+          // Find Excel files in data directory and get the latest by modification time
           const dataDir = './data';
           const files = fs.readdirSync(dataDir).filter(f => f.match(/\.(xlsx?)$/i) && !f.startsWith('~'));
           
@@ -60,7 +60,14 @@ jobs:
             process.exit(0);
           }
           
-          const excelFile = path.join(dataDir, files[0]);
+          // Sort files by modification time (newest first)
+          const sortedFiles = files.map(f => ({
+            name: f,
+            path: path.join(dataDir, f),
+            mtime: fs.statSync(path.join(dataDir, f)).mtime
+          })).sort((a, b) => b.mtime - a.mtime);
+          
+          const excelFile = sortedFiles[0].path;
           console.log('Processing:', excelFile);
           
           const workbook = XLSX.readFile(excelFile);
@@ -134,20 +141,11 @@ jobs:
               regEnabled = !visibilityStr.includes('hidden');
             }
             
-            // Map columns based on Excel structure investigation:
-            // Column 26: 4th Filter Name - contains clean track categories (Registration, Networking, Keynote, Lab, etc.)
+            // Map columns based on Excel structure:
+            // Column 20: 1st Filter Name - contains clean track categories (Registration, Networking, Keynote, Lab, etc.)
             // Column 33: General level categories - contains high-level groupings (Agentic Labs, Cross Industry Summit, etc.)
-            let track = row[26] || 'General';   // 4th Filter Name - session track/type  
-            const level = row[33] || 'All';     // General level categories - session level/audience
-            
-            // Handle long concatenated track values - use \"Lab\" for Agentic Labs sessions
-            if (track.length > 50 || track.includes(',')) {
-              if (title.toString().startsWith('Agentic Labs:')) {
-                track = 'Lab';
-              } else {
-                track = 'General';
-              }
-            }
+            const track = row[20] || 'General';   // 1st Filter Name - session track/type  
+            const level = row[33] || 'All';       // General level categories - session level/audience
             
             const session = {
               id: id.toString(),

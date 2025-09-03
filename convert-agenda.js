@@ -1,5 +1,6 @@
 const XLSX = require('xlsx');
 const fs = require('fs');
+const path = require('path');
 
 function generateId() {
   return Math.random().toString(36).substr(2, 13);
@@ -8,7 +9,25 @@ function generateId() {
 console.log('Converting Excel Agenda sheet to JSON...');
 
 try {
-  const workbook = XLSX.readFile('./data/FUSION Agenda_090225.xlsx');
+  // Find Excel files in data directory and get the latest by modification time
+  const dataDir = './data';
+  const files = fs.readdirSync(dataDir).filter(f => f.match(/\.(xlsx?)$/i) && !f.startsWith('~'));
+  
+  if (files.length === 0) {
+    throw new Error('No Excel files found in data directory');
+  }
+  
+  // Sort files by modification time (newest first)
+  const sortedFiles = files.map(f => ({
+    name: f,
+    path: path.join(dataDir, f),
+    mtime: fs.statSync(path.join(dataDir, f)).mtime
+  })).sort((a, b) => b.mtime - a.mtime);
+  
+  const excelFile = sortedFiles[0].path;
+  console.log('Processing latest file:', excelFile);
+  
+  const workbook = XLSX.readFile(excelFile);
   const worksheet = workbook.Sheets['Agenda'];
   
   if (!worksheet) {
@@ -83,22 +102,13 @@ try {
       regEnabled = !visibilityStr.includes('hidden');
     }
     
-    // Map columns based on Excel structure investigation:
-    // Column 26: 4th Filter Name - contains clean track categories (Registration, Networking, Keynote, Lab, etc.)
+    // Map columns based on Excel structure:
+    // Column 20: 1st Filter Name - contains clean track categories (Registration, Networking, Keynote, Lab, etc.)
     // Column 33: General level categories - contains high-level groupings (Agentic Labs, Cross Industry Summit, etc.)
     // Column 8: Sessions Main Location - room information
-    let track = row[26] || 'General';    // 4th Filter Name - session track/type
-    const level = row[33] || 'All';      // General level categories - session level/audience
-    const room = row[8] || '—';          // Sessions Main Location
-    
-    // Handle long concatenated track values - use "Lab" for Agentic Labs sessions
-    if (track.length > 50 || track.includes(',')) {
-      if (title.toString().startsWith('Agentic Labs:')) {
-        track = 'Lab';
-      } else {
-        track = 'General';
-      }
-    }
+    const track = row[20] || 'General';    // 1st Filter Name - session track/type
+    const level = row[33] || 'All';        // General level categories - session level/audience
+    const room = row[8] || '—';            // Sessions Main Location
     
     const session = {
       id: id.toString(),
@@ -129,7 +139,7 @@ try {
   const output = {
     metadata: {
       generatedAt: new Date().toISOString(),
-      source: 'agenda.xlsx',
+      source: path.basename(excelFile),
       totalSessions: sessions.length
     },
     sessions
