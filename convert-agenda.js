@@ -8,7 +8,7 @@ function generateId() {
 console.log('Converting Excel Agenda sheet to JSON...');
 
 try {
-  const workbook = XLSX.readFile('./data/agenda.xlsx');
+  const workbook = XLSX.readFile('./data/FUSION Agenda_090225.xlsx');
   const worksheet = workbook.Sheets['Agenda'];
   
   if (!worksheet) {
