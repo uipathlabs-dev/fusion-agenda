@@ -14,6 +14,9 @@
     .subtitle{color:var(--muted);margin-top:6px}
     .toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
     input,select,button,textarea{background:var(--deep-blue-2);color:var(--white);border:1px solid #233038;border-radius:12px;padding:10px 12px}
+    select[multiple]{min-height:40px;max-height:120px;overflow-y:auto}
+    select[multiple] option{padding:4px 8px;margin:1px 0}
+    select[multiple] option:checked{background:var(--orange);color:var(--white)}
     textarea{font-family:inherit;line-height:1.4}
     .btn{border:none;cursor:pointer;font-weight:700;letter-spacing:-0.015em;border-radius:12px;padding:10px 14px}
     .btn-primary{background:var(--orange);color:var(--white)}
@@ -64,7 +67,7 @@
 
     <div class="controls">
       <input id="q" placeholder="Search title, speaker, room"/>
-      <select id="track"></select>
+      <select id="track" multiple></select>
       <select id="day"></select>
       <select id="level"></select>
       <input id="dummy" disabled placeholder="PDF-only build"/>
@@ -215,7 +218,7 @@ function validateSessions() {
   }));
 }
 /************************* State & helpers *************************/
-const state = { customer: "", notes: "", selected: {}, personalItems: {}, filters: { q:"", track:"", day:"", level:"" } };
+const state = { customer: "", notes: "", selected: {}, personalItems: {}, filters: { q:"", track:[], day:"", level:"" } };
 const $ = (id) => document.getElementById(id);
 let els; // Will be initialized in init() when DOM is ready
 const unique = (list) => Array.from(new Set(list)).filter(Boolean);
@@ -232,7 +235,7 @@ function groupByDay(arr){
 function filteredSessions(){
   const {q,track,day,level} = state.filters;
   return SESSIONS
-    .filter(s=>!track || s.track===track)
+    .filter(s=>!track.length || track.includes(s.track))
     .filter(s=>!day || s.day===day)
     .filter(s=>!level || s.level===level)
     .filter(s=>!q || (s.title+' '+(s.description||'')+' '+(s.speaker||'')+' '+(s.room||'')).toLowerCase().includes(q.toLowerCase()))
@@ -284,10 +287,10 @@ function deletePersonalItem(id) {
 
 /*********************** Rendering ************************/
 function renderFilters(){
-  const tracks  = [""] .concat(unique(SESSIONS.map(s=>s.track)));
+  const tracks  = unique(SESSIONS.map(s=>s.track)).filter(Boolean);
   const days    = [""] .concat(unique(SESSIONS.map(s=>s.day)));
   const levels  = [""] .concat(unique(SESSIONS.map(s=>s.level)));
-  $("track").innerHTML = tracks.map(v=>`<option value="${v}">${v||'All tracks'}</option>`).join("");
+  $("track").innerHTML = tracks.map(v=>`<option value="${v}">${v}</option>`).join("");
   $("day").innerHTML   = days.map(v=>`<option value="${v}">${v?fmtDateShort(v):'All days'}</option>`).join("");
   $("level").innerHTML = levels.map(v=>`<option value="${v}">${v||'All levels'}</option>`).join("");
 }
@@ -517,7 +520,7 @@ async function init(){
     
     // Set up event listeners
     $("q").addEventListener('input', e=>{ state.filters.q=e.target.value; draw(); });
-    $("track").addEventListener('change', e=>{ state.filters.track=e.target.value; draw(); });
+    $("track").addEventListener('change', e=>{ state.filters.track=Array.from(e.target.selectedOptions, option => option.value); draw(); });
     $("day").addEventListener('change', e=>{ state.filters.day=e.target.value; draw(); });
     $("level").addEventListener('change', e=>{ state.filters.level=e.target.value; draw(); });
     $("customer").addEventListener('input', e=>{ state.customer=e.target.value; draw(); });
