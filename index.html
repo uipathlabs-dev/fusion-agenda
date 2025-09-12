@@ -396,6 +396,13 @@ function toggleTrackOption(option) {
   
   const checkbox = option.querySelector('input[type="checkbox"]');
   checkbox.checked = !checkbox.checked;
+  
+  // If we're selecting an individual track, uncheck "All tracks"
+  const allCheckbox = $("trackDropdown").querySelector('#track-all');
+  if (checkbox.checked && allCheckbox.checked) {
+    allCheckbox.checked = false;
+  }
+  
   updateTrackSelection();
 }
 
@@ -422,8 +429,12 @@ function updateTrackSelection() {
   // Update state
   state.filters.track = checkedTracks;
   
-  // Update "All tracks" checkbox
-  allCheckbox.checked = checkedTracks.length === 0;
+  // Update "All tracks" checkbox - only if no individual tracks are selected
+  if (checkedTracks.length === 0) {
+    allCheckbox.checked = true;
+  } else {
+    allCheckbox.checked = false;
+  }
   
   // Update display text
   const display = $("trackDisplay");
