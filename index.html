@@ -14,9 +14,16 @@
     .subtitle{color:var(--muted);margin-top:6px}
     .toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
     input,select,button,textarea{background:var(--deep-blue-2);color:var(--white);border:1px solid #233038;border-radius:12px;padding:10px 12px}
-    select[multiple]{min-height:40px;max-height:120px;overflow-y:auto}
-    select[multiple] option{padding:4px 8px;margin:1px 0}
-    select[multiple] option:checked{background:var(--orange);color:var(--white)}
+    .custom-select{position:relative;display:inline-block;width:100%}
+    .select-display{background:var(--deep-blue-2);color:var(--white);border:1px solid #233038;border-radius:12px;padding:10px 12px;cursor:pointer;position:relative}
+    .select-display:after{content:'▼';position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:12px}
+    .select-dropdown{position:absolute;top:100%;left:0;right:0;background:var(--deep-blue-2);border:1px solid #233038;border-top:none;border-radius:0 0 12px 12px;max-height:200px;overflow-y:auto;display:none;z-index:10}
+    .select-option{padding:8px 12px;display:flex;align-items:center;gap:8px;cursor:pointer}
+    .select-option:hover{background:#233038}
+    .select-option input[type="checkbox"]{margin:0}
+    .select-option label{cursor:pointer;flex:1;margin:0}
+    .custom-select.open .select-dropdown{display:block}
+    .custom-select.open .select-display:after{content:'▲'}
     textarea{font-family:inherit;line-height:1.4}
     .btn{border:none;cursor:pointer;font-weight:700;letter-spacing:-0.015em;border-radius:12px;padding:10px 14px}
     .btn-primary{background:var(--orange);color:var(--white)}
@@ -67,7 +74,15 @@
 
     <div class="controls">
       <input id="q" placeholder="Search title, speaker, room"/>
-      <select id="track" multiple></select>
+      <div class="custom-select" id="trackSelect">
+        <div class="select-display" id="trackDisplay">All tracks</div>
+        <div class="select-dropdown" id="trackDropdown">
+          <div class="select-option" data-value="" onclick="toggleTrackOption(this)">
+            <input type="checkbox" id="track-all" onchange="toggleAllTracks(this)">
+            <label for="track-all">All tracks</label>
+          </div>
+        </div>
+      </div>
       <select id="day"></select>
       <select id="level"></select>
       <input id="dummy" disabled placeholder="PDF-only build"/>
@@ -290,7 +305,18 @@ function renderFilters(){
   const tracks  = unique(SESSIONS.map(s=>s.track)).filter(Boolean);
   const days    = [""] .concat(unique(SESSIONS.map(s=>s.day)));
   const levels  = [""] .concat(unique(SESSIONS.map(s=>s.level)));
-  $("track").innerHTML = tracks.map(v=>`<option value="${v}">${v}</option>`).join("");
+  
+  // Render custom track dropdown
+  const trackDropdown = $("trackDropdown");
+  const allOption = trackDropdown.querySelector('.select-option');
+  const trackOptions = tracks.map(v=>`
+    <div class="select-option" data-value="${v}" onclick="toggleTrackOption(this)">
+      <input type="checkbox" id="track-${v.replace(/\s+/g, '-')}" value="${v}">
+      <label for="track-${v.replace(/\s+/g, '-')}">${v}</label>
+    </div>
+  `).join("");
+  trackDropdown.innerHTML = allOption.outerHTML + trackOptions;
+  
   $("day").innerHTML   = days.map(v=>`<option value="${v}">${v?fmtDateShort(v):'All days'}</option>`).join("");
   $("level").innerHTML = levels.map(v=>`<option value="${v}">${v||'All levels'}</option>`).join("");
 }
@@ -357,6 +383,59 @@ function draw(){
   $("customer").value = state.customer; $("notes").value = state.notes;
   els.who.textContent = state.customer ? `For ${state.customer}` : 'Add a customer name (appears on PDF)';
   drawSessions(); drawSelected();
+}
+
+// Custom track dropdown functions
+function toggleTrackDropdown() {
+  const select = $("trackSelect");
+  select.classList.toggle("open");
+}
+
+function toggleTrackOption(option) {
+  if (option.dataset.value === "") return; // Skip "All tracks" option
+  
+  const checkbox = option.querySelector('input[type="checkbox"]');
+  checkbox.checked = !checkbox.checked;
+  updateTrackSelection();
+}
+
+function toggleAllTracks(allCheckbox) {
+  const dropdown = $("trackDropdown");
+  const otherCheckboxes = dropdown.querySelectorAll('input[type="checkbox"]:not(#track-all)');
+  
+  if (allCheckbox.checked) {
+    // If "All tracks" is checked, uncheck all others
+    otherCheckboxes.forEach(cb => cb.checked = false);
+    state.filters.track = [];
+  }
+  
+  updateTrackSelection();
+  draw();
+}
+
+function updateTrackSelection() {
+  const dropdown = $("trackDropdown");
+  const allCheckbox = dropdown.querySelector('#track-all');
+  const otherCheckboxes = dropdown.querySelectorAll('input[type="checkbox"]:not(#track-all)');
+  const checkedTracks = Array.from(otherCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
+  
+  // Update state
+  state.filters.track = checkedTracks;
+  
+  // Update "All tracks" checkbox
+  allCheckbox.checked = checkedTracks.length === 0;
+  
+  // Update display text
+  const display = $("trackDisplay");
+  if (checkedTracks.length === 0) {
+    display.textContent = "All tracks";
+  } else if (checkedTracks.length === 1) {
+    display.textContent = checkedTracks[0];
+  } else {
+    display.textContent = `${checkedTracks.length} tracks selected`;
+  }
+  
+  draw();
 }
 function toggle(id){
   // Handle personal items
@@ -520,7 +599,16 @@ async function init(){
     
     // Set up event listeners
     $("q").addEventListener('input', e=>{ state.filters.q=e.target.value; draw(); });
-    $("track").addEventListener('change', e=>{ state.filters.track=Array.from(e.target.selectedOptions, option => option.value); draw(); });
+    // Track dropdown event listener
+    $("trackDisplay").addEventListener('click', toggleTrackDropdown);
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      const trackSelect = $("trackSelect");
+      if (!trackSelect.contains(e.target)) {
+        trackSelect.classList.remove("open");
+      }
+    });
     $("day").addEventListener('change', e=>{ state.filters.day=e.target.value; draw(); });
     $("level").addEventListener('change', e=>{ state.filters.level=e.target.value; draw(); });
     $("customer").addEventListener('input', e=>{ state.customer=e.target.value; draw(); });
