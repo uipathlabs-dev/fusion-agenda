@@ -101,7 +101,10 @@
       <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
           <div style="font-weight:800">My agenda</div>
-          <button id="addPersonalItem" class="btn btn-add" style="padding:6px 10px;font-size:12px">+ Add Item</button>
+          <div style="display:flex;gap:4px">
+            <button id="copyShareLink" class="btn btn-quiet" style="padding:6px 10px;font-size:12px">📋 Share</button>
+            <button id="addPersonalItem" class="btn btn-add" style="padding:6px 10px;font-size:12px">+ Add Item</button>
+          </div>
         </div>
         <ul id="selected" class="list" style="margin-top:6px"></ul>
         <div style="display:flex;gap:12px;margin-top:8px">
@@ -472,11 +475,91 @@ function toggle(id){
   
   // Handle regular sessions
   const s = SESSIONS.find(x=>x.id===id); if(!s) return;
-  if(state.selected[id]){ delete state.selected[id]; draw(); return; }
+  if(state.selected[id]){ 
+    delete state.selected[id]; 
+    updateURLWithSelections();
+    draw(); 
+    return; 
+  }
   if(s.regEnabled===false){ showError('This session is hidden and cannot be added'); return; }
-  state.selected[id] = true; draw();
+  state.selected[id] = true; 
+  updateURLWithSelections();
+  draw();
 }
 window.toggle = toggle;
+
+/*********************** URL Sharing ************************/
+function updateURLWithSelections() {
+  const selectedIds = Object.keys(state.selected);
+  const url = new URL(window.location);
+  
+  if (selectedIds.length > 0) {
+    // Encode selected session IDs as comma-separated string
+    url.searchParams.set('sessions', selectedIds.join(','));
+  } else {
+    // Remove parameter if no sessions selected
+    url.searchParams.delete('sessions');
+  }
+  
+  // Include customer name and notes for complete sharing
+  if (state.customer && state.customer.trim()) {
+    url.searchParams.set('customer', state.customer);
+  } else {
+    url.searchParams.delete('customer');
+  }
+  
+  if (state.notes && state.notes.trim()) {
+    url.searchParams.set('notes', state.notes);
+  } else {
+    url.searchParams.delete('notes');
+  }
+  
+  // Update URL without reloading the page
+  window.history.replaceState({}, '', url);
+}
+
+function loadSelectionsFromURL() {
+  const url = new URL(window.location);
+  const sessionsParam = url.searchParams.get('sessions');
+  const customerParam = url.searchParams.get('customer');
+  const notesParam = url.searchParams.get('notes');
+  
+  let hasLoadedData = false;
+  
+  // Load sessions
+  if (sessionsParam) {
+    const sessionIds = sessionsParam.split(',').filter(id => id.trim());
+    
+    // Clear current selections
+    state.selected = {};
+    
+    // Set selections from URL
+    sessionIds.forEach(id => {
+      // Verify the session exists before selecting it
+      const session = SESSIONS.find(s => s.id === id);
+      if (session && session.regEnabled !== false) {
+        state.selected[id] = true;
+      }
+    });
+    
+    console.log('Loaded selections from URL:', Object.keys(state.selected).length, 'sessions');
+    hasLoadedData = true;
+  }
+  
+  // Load customer name
+  if (customerParam) {
+    state.customer = decodeURIComponent(customerParam);
+    hasLoadedData = true;
+  }
+  
+  // Load notes
+  if (notesParam) {
+    state.notes = decodeURIComponent(notesParam);
+    hasLoadedData = true;
+  }
+  
+  return hasLoadedData;
+}
 
 /*********************** Personal Item Management ************************/
 let currentEditingPersonalId = null;
@@ -620,6 +703,7 @@ async function init(){
     validateSessions();
     renderFilters();
     loadPersonalItems(); // Load saved personal items
+    loadSelectionsFromURL(); // Load shared selections from URL
     
     // Set up event listeners
     $("q").addEventListener('input', e=>{ state.filters.q=e.target.value; draw(); });
@@ -635,8 +719,8 @@ async function init(){
     });
     $("day").addEventListener('change', e=>{ state.filters.day=e.target.value; draw(); });
     $("level").addEventListener('change', e=>{ state.filters.level=e.target.value; draw(); });
-    $("customer").addEventListener('input', e=>{ state.customer=e.target.value; draw(); });
-    $("notes").addEventListener('input', e=>{ state.notes=e.target.value; draw(); });
+    $("customer").addEventListener('input', e=>{ state.customer=e.target.value; updateURLWithSelections(); draw(); });
+    $("notes").addEventListener('input', e=>{ state.notes=e.target.value; updateURLWithSelections(); draw(); });
     $("printOptions").addEventListener('click', ()=>{ $("printModal").style.display='flex'; });
     $("printCancel").addEventListener('click', ()=>{ $("printModal").style.display='none'; });
     $("print").addEventListener('click', ()=>{ $("printGo").click(); });
@@ -656,6 +740,35 @@ async function init(){
     $("personalItemForm").addEventListener('submit', handlePersonalItemSubmit);
     $("personalItemCancel").addEventListener('click', closePersonalItemModal);
     $("personalItemDelete").addEventListener('click', handlePersonalItemDelete);
+    
+    // Copy share link button
+    $("copyShareLink").addEventListener('click', () => {
+      const currentURL = window.location.href;
+      navigator.clipboard.writeText(currentURL).then(() => {
+        // Visual feedback that link was copied
+        const btn = $("copyShareLink");
+        const originalText = btn.textContent;
+        btn.textContent = "✅ Copied!";
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 2000);
+      }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = currentURL;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        
+        const btn = $("copyShareLink");
+        const originalText = btn.textContent;
+        btn.textContent = "✅ Copied!";
+        setTimeout(() => {
+          btn.textContent = originalText;
+        }, 2000);
+      });
+    });
     $("printGo").addEventListener('click', ()=>{
       const o = {
         includeSpeakers: $("optSpeakers").checked,
