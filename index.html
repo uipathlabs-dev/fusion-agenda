@@ -77,8 +77,8 @@
       <div class="custom-select" id="trackSelect">
         <div class="select-display" id="trackDisplay">All tracks</div>
         <div class="select-dropdown" id="trackDropdown">
-          <div class="select-option" data-value="" onclick="toggleTrackOption(this)">
-            <input type="checkbox" id="track-all" onchange="toggleAllTracks(this)">
+          <div class="select-option" data-value="">
+            <input type="checkbox" id="track-all" onchange="toggleAllTracks(this)" checked>
             <label for="track-all">All tracks</label>
           </div>
         </div>
@@ -310,8 +310,8 @@ function renderFilters(){
   const trackDropdown = $("trackDropdown");
   const allOption = trackDropdown.querySelector('.select-option');
   const trackOptions = tracks.map(v=>`
-    <div class="select-option" data-value="${v}" onclick="toggleTrackOption(this)">
-      <input type="checkbox" id="track-${v.replace(/\s+/g, '-')}" value="${v}">
+    <div class="select-option" data-value="${v}">
+      <input type="checkbox" id="track-${v.replace(/\s+/g, '-')}" value="${v}" onchange="handleTrackCheckboxChange(this)">
       <label for="track-${v.replace(/\s+/g, '-')}">${v}</label>
     </div>
   `).join("");
@@ -389,6 +389,16 @@ function draw(){
 function toggleTrackDropdown() {
   const select = $("trackSelect");
   select.classList.toggle("open");
+}
+
+function handleTrackCheckboxChange(checkbox) {
+  // If we're selecting an individual track, uncheck "All tracks"
+  const allCheckbox = $("trackDropdown").querySelector('#track-all');
+  if (checkbox.checked && allCheckbox.checked) {
+    allCheckbox.checked = false;
+  }
+  
+  updateTrackSelection();
 }
 
 function toggleTrackOption(option) {
