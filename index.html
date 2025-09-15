@@ -249,12 +249,15 @@ function groupByDay(arr){
 }
 function filteredSessions(){
   const {q,track,day,level} = state.filters;
-  return SESSIONS
+  console.log('🔍 filteredSessions called with track:', track, 'length:', track ? track.length : 'undefined');
+  const result = SESSIONS
     .filter(s=>!track.length || track.includes(s.track))
     .filter(s=>!day || s.day===day)
     .filter(s=>!level || s.level===level)
     .filter(s=>!q || (s.title+' '+(s.description||'')+' '+(s.speaker||'')+' '+(s.room||'')).toLowerCase().includes(q.toLowerCase()))
     .sort((a,b)=>+new Date(a.start)-+new Date(b.start));
+  console.log('✅ filteredSessions returning', result.length, 'sessions');
+  return result;
 }
 const selectedList = ()=> {
   const officialSessions = Object.keys(state.selected).map(id=> SESSIONS.find(s=>s.id===id)).filter(Boolean);
@@ -321,8 +324,15 @@ function renderFilters(){
   $("level").innerHTML = levels.map(v=>`<option value="${v}">${v||'All levels'}</option>`).join("");
 }
 function drawSessions(){
-  const groups = groupByDay(filteredSessions());
-  els.shownCount.textContent = `${groups.reduce((n,g)=>n+g.items.length,0)} shown`;
+  const filtered = filteredSessions();
+  const groups = groupByDay(filtered);
+  const count = groups.reduce((n,g)=>n+g.items.length,0);
+  console.log('📋 drawSessions - filtered:', filtered.length, 'grouped count:', count);
+  console.log('📋 Setting els.shownCount.textContent to:', `${count} shown`);
+  console.log('📋 els.shownCount element:', els.shownCount);
+  console.log('📋 Current textContent before:', els.shownCount.textContent);
+  els.shownCount.textContent = `${count} shown`;
+  console.log('📋 Current textContent after:', els.shownCount.textContent);
   els.sessions.innerHTML = groups.map(g=>{
     const header = `<div class="day-sep">${fmtDate(g.day)}</div>`;
     const rows = g.items.map(s=>{
@@ -380,6 +390,7 @@ function drawSelected(){
   }).join("");
 }
 function draw(){
+  console.log('🎨 draw() called with filters:', state.filters);
   $("customer").value = state.customer; $("notes").value = state.notes;
   els.who.textContent = state.customer ? `For ${state.customer}` : 'Add a customer name (appears on PDF)';
   drawSessions(); drawSelected();
@@ -392,6 +403,7 @@ function toggleTrackDropdown() {
 }
 
 function handleTrackCheckboxChange(checkbox) {
+  
   // If we're selecting an individual track, uncheck "All tracks"
   const allCheckbox = $("trackDropdown").querySelector('#track-all');
   if (checkbox.checked && allCheckbox.checked) {
