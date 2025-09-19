@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "generatedAt": "2025-09-19T23:07:38.580Z",
-    "source": "FUSION Agenda_082625 Backup.xlsx",
+    "generatedAt": "2025-09-19T23:09:58.114Z",
+    "source": "FUSION Agenda_082625.xlsx",
     "totalSessions": 183
   },
   "sessions": [
@@ -1345,7 +1345,7 @@
       "regEnabled": true
     },
     {
-      "id": "tp1yrbe8rf",
+      "id": "ym94fyle6x",
       "title": "Accelerating Innovation in Life Sciences with Agentic Automation: CGI’s Vision and Real-World Impact",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1358,7 +1358,7 @@
       "regEnabled": true
     },
     {
-      "id": "xreinjfosxg",
+      "id": "kzc4t1kr5pc",
       "title": "Agentic AI in Action: Unlocking Document Intelligence Across the Enterprise",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1371,7 +1371,7 @@
       "regEnabled": true
     },
     {
-      "id": "6kldg2eke1q",
+      "id": "lr6s04npnqp",
       "title": "Agentic AI: From Hype to Hands-On",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1384,7 +1384,7 @@
       "regEnabled": true
     },
     {
-      "id": "cmei4apcq7",
+      "id": "smcbmtbutl",
       "title": "Agentic Automation: When Processes Think for Themselves",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1397,7 +1397,7 @@
       "regEnabled": true
     },
     {
-      "id": "01jv5t91e7no",
+      "id": "zk3wwno8a7",
       "title": "Agentic ERP: The Power of Autonomous Intelligence",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1410,7 +1410,7 @@
       "regEnabled": true
     },
     {
-      "id": "s72b27hac6e",
+      "id": "q9v9wwasdvq",
       "title": "Agentic Intelligence: The New Edge for Smarter Processes and Smarter Outcomes",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1423,7 +1423,7 @@
       "regEnabled": true
     },
     {
-      "id": "jusjorgup",
+      "id": "wvgxulfx66m",
       "title": "Agentic Process Management (APM) : Operational Harmony Between Humans and \nMachines",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1436,7 +1436,7 @@
       "regEnabled": true
     },
     {
-      "id": "hdzivd0ziy",
+      "id": "ivsqnarrih",
       "title": "Agents in Use by UiPath MVPs",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1449,7 +1449,7 @@
       "regEnabled": true
     },
     {
-      "id": "1j9we6zq98i",
+      "id": "z85rf6v6y5",
       "title": "Autonomous Testing: Redefining Speed and Precision",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1462,7 +1462,7 @@
       "regEnabled": true
     },
     {
-      "id": "gki4xhhd84o",
+      "id": "k6e5zamsfi",
       "title": "Azure Marketplace",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1475,7 +1475,7 @@
       "regEnabled": true
     },
     {
-      "id": "ryfww1oxf89",
+      "id": "ysy8z5mc7nr",
       "title": "Balancing AI Learning with Delivery and Transformation in the Agentic Era",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1488,7 +1488,7 @@
       "regEnabled": true
     },
     {
-      "id": "vgrohh84z1",
+      "id": "7cbjmhho0ap",
       "title": "Beyond the ROI: Building Business Cases for Automation and AI That Truly Resonate",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1501,7 +1501,7 @@
       "regEnabled": true
     },
     {
-      "id": "igc375vqcj",
+      "id": "mlu4330zlh",
       "title": "Breaking Barriers: Navigating Agentic Automation in Healthcare",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1514,7 +1514,7 @@
       "regEnabled": true
     },
     {
-      "id": "l0q6absj4qc",
+      "id": "f4pi0jpfb8r",
       "title": "Co-Innovation Between MSFT and UiPath to Jointly Accelerate Agentic Automation",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1527,7 +1527,7 @@
       "regEnabled": true
     },
     {
-      "id": "4a00ih0siyj",
+      "id": "v1njiwdcnjc",
       "title": "Creating a Self-Sustaining Model That Embeds Agentic Into How People Work",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1540,7 +1540,7 @@
       "regEnabled": true
     },
     {
-      "id": "fnxyb5zu5lo",
+      "id": "m40zepv5cy",
       "title": "Creating an Integrated Ecosystem That Seamlessly Connects Your Organization",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1553,7 +1553,7 @@
       "regEnabled": true
     },
     {
-      "id": "uqu3mlse0jg",
+      "id": "qr9amdnwwn",
       "title": "FINS: Banking Meet-up",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1566,7 +1566,7 @@
       "regEnabled": true
     },
     {
-      "id": "7wip012pnj7",
+      "id": "jshiss0si8",
       "title": "FINS: Credit Unions Meet-up",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1579,7 +1579,7 @@
       "regEnabled": true
     },
     {
-      "id": "81bgvkdlb7k",
+      "id": "flekw6429up",
       "title": "FINS: LIfe Insurance Meet-up",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1592,7 +1592,7 @@
       "regEnabled": true
     },
     {
-      "id": "cqwvh7kmas",
+      "id": "nuti7xm6svd",
       "title": "FINS: P&C Insurance Meet-up",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1605,7 +1605,7 @@
       "regEnabled": true
     },
     {
-      "id": "mu706cy3y9g",
+      "id": "gizf8t2m75e",
       "title": "FINS: Wealth and Asset Management Meet-up",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1618,7 +1618,7 @@
       "regEnabled": true
     },
     {
-      "id": "pbbvkrjvytq",
+      "id": "s9209x2ueta",
       "title": "Fast-Track Agentic AI ROI with Proven Best Practices",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1631,7 +1631,7 @@
       "regEnabled": true
     },
     {
-      "id": "rwm78m6tje",
+      "id": "0ug3uoihlp4",
       "title": "Fostering a Culture of Ai-Powered Innovation",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1644,7 +1644,7 @@
       "regEnabled": true
     },
     {
-      "id": "mi8ai1gchmm",
+      "id": "hbv3ntl2b5e",
       "title": "From Flowcharts to Free Will: The Rise of Autonomous Automation",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1657,7 +1657,7 @@
       "regEnabled": true
     },
     {
-      "id": "lszgtzt7rq",
+      "id": "w1n2flwkue",
       "title": "How to Think—and Act—Like an AI-Native Business",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1670,7 +1670,7 @@
       "regEnabled": true
     },
     {
-      "id": "yo8axnigbwd",
+      "id": "iyq2kwqdsbg",
       "title": "Intelligent Automation Meets Intelligent Assurance",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1683,7 +1683,7 @@
       "regEnabled": true
     },
     {
-      "id": "dqk6q10di1l",
+      "id": "7y7x1rjb1ss",
       "title": "Oil and  Gas Roundtable",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1696,7 +1696,7 @@
       "regEnabled": true
     },
     {
-      "id": "wwmbahupckf",
+      "id": "bl9v4j3f3av",
       "title": "Quote Processing: Agentic Revenue Generation",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1709,7 +1709,7 @@
       "regEnabled": true
     },
     {
-      "id": "0zvhju2zwop",
+      "id": "sn0bs4hxg5o",
       "title": "Smart Finance Transformation: Practical Paths to AI-Driven Automation",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1722,7 +1722,7 @@
       "regEnabled": true
     },
     {
-      "id": "cdmabesjtat",
+      "id": "wlseuy0c349",
       "title": "Steps Towards Agentic Automation Community",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1735,7 +1735,7 @@
       "regEnabled": true
     },
     {
-      "id": "de9vjygdgu",
+      "id": "otxj7h3w8mi",
       "title": "The Great BPO Reset: From Labor Arbitrage to “Agentic AI-as-an-Internal-Service”.",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1748,7 +1748,7 @@
       "regEnabled": true
     },
     {
-      "id": "ss07x2sxbhd",
+      "id": "01jpj2up4jpl",
       "title": "The Great CoE Convergence: How Siloed Governance Will be Brought Together in an Agentic World",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1761,7 +1761,7 @@
       "regEnabled": true
     },
     {
-      "id": "fk1c0q1527i",
+      "id": "6dbs4xxk4v",
       "title": "UiPath AI25 Winners Roundtable and Discussion",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1774,7 +1774,7 @@
       "regEnabled": true
     },
     {
-      "id": "cs7r3r3xoo",
+      "id": "rcpxs48hgk",
       "title": "UiPath AI25 Winners Roundtable and Discussion",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1787,7 +1787,7 @@
       "regEnabled": true
     },
     {
-      "id": "i0hrv1zt8dc",
+      "id": "wkmvhbfx7c",
       "title": "UiPath AI25 Winners Roundtable and Discussion",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1800,7 +1800,7 @@
       "regEnabled": true
     },
     {
-      "id": "i6djsinxt49",
+      "id": "ws31blrwavs",
       "title": "Unlocking Agentic Automation in Life Sciences. Intelligent Agents, Smarter Sciences.",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1813,7 +1813,7 @@
       "regEnabled": true
     },
     {
-      "id": "wxhn8y59fng",
+      "id": "b2nmz748jdp",
       "title": "Utilities Industry Roundtable",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1826,7 +1826,7 @@
       "regEnabled": true
     },
     {
-      "id": "wh8z19zem7",
+      "id": "06w4szzwjybt",
       "title": "What Got Chatbots Here Won’t Get You There: Agentic CX That Orchestrates, Not Just Answers",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1839,7 +1839,7 @@
       "regEnabled": true
     },
     {
-      "id": "3f8p5tqivvq",
+      "id": "kte96nzamc",
       "title": "You Can’t Scale What You Can’t Trust: Rethinking Test Automation in the Age of Agentic AI",
       "track": "Roundtable",
       "day": "2025-09-30",
@@ -1852,7 +1852,7 @@
       "regEnabled": true
     },
     {
-      "id": "62u4g30j0hr",
+      "id": "wavoi3uqo58",
       "title": "Achieving Success with Government Automation: Key Considerations and Benefits",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1865,7 +1865,7 @@
       "regEnabled": true
     },
     {
-      "id": "gbygaepp05h",
+      "id": "ktcvc497la",
       "title": "Adding Agency to Manufacturing",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1878,7 +1878,7 @@
       "regEnabled": true
     },
     {
-      "id": "81g9s2xp5ef",
+      "id": "yeejppz2abr",
       "title": "Agentic AI in Action: Scaling Beyond Automation",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1891,7 +1891,7 @@
       "regEnabled": true
     },
     {
-      "id": "iwgx0rd93uk",
+      "id": "pwjdabflhde",
       "title": "Agentic AI in Action: Unlocking Document Intelligence Across the Enterprise",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1904,7 +1904,7 @@
       "regEnabled": true
     },
     {
-      "id": "jk16y25pg9",
+      "id": "1heq4h4pd5z",
       "title": "Agentic AI: From Hype to Hands-On",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1917,7 +1917,7 @@
       "regEnabled": true
     },
     {
-      "id": "xvi8zhwulaf",
+      "id": "tyrixwnwxu",
       "title": "Agentic Automation: When Processes Think for Themselves",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1930,7 +1930,7 @@
       "regEnabled": true
     },
     {
-      "id": "w4wsewhp3s",
+      "id": "tqtnv2srwvr",
       "title": "Agentic ERP: The Power of Autonomous Intelligence",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1943,7 +1943,7 @@
       "regEnabled": true
     },
     {
-      "id": "kc7xt7f2a",
+      "id": "8mrsb6vdygi",
       "title": "Agentic Intelligence: The New Edge for Smarter Processes and Smarter Outcomes",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1956,7 +1956,7 @@
       "regEnabled": true
     },
     {
-      "id": "qk3ppxcen5a",
+      "id": "far9rcgtk9c",
       "title": "Agentic Manufacturing",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1969,7 +1969,7 @@
       "regEnabled": true
     },
     {
-      "id": "d33dwen66cn",
+      "id": "kjioxg7q5nl",
       "title": "Agentic-Powered Sales to Drive Revenue Growth",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1982,7 +1982,7 @@
       "regEnabled": true
     },
     {
-      "id": "q05cv520ocd",
+      "id": "komuc7mc3v9",
       "title": "Agents in Use by UiPath MVPs",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -1995,7 +1995,7 @@
       "regEnabled": true
     },
     {
-      "id": "rdwfr0dtdw",
+      "id": "l6mshb8whm",
       "title": "Autonomous Testing: Redefining Speed and Precision ",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2008,7 +2008,7 @@
       "regEnabled": true
     },
     {
-      "id": "ijck2snwkhm",
+      "id": "ha77dxodopd",
       "title": "Azure Marketplace",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2021,7 +2021,7 @@
       "regEnabled": true
     },
     {
-      "id": "0b1csbew30wg",
+      "id": "xz993cckmfb",
       "title": "Balancing AI Learning with Delivery and Transformation in the Agentic Era",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2034,7 +2034,7 @@
       "regEnabled": true
     },
     {
-      "id": "kc2j3nl4dh",
+      "id": "v5r15v7ef2",
       "title": "Breaking Silos: Intelligent Process Optimization",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2047,7 +2047,7 @@
       "regEnabled": true
     },
     {
-      "id": "03oc359zmu4i",
+      "id": "h8309eevtai",
       "title": "Building Trust in AI: The New Mandate for Quality Engineering",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2060,7 +2060,7 @@
       "regEnabled": true
     },
     {
-      "id": "g9033bua12r",
+      "id": "yftsr86fr3n",
       "title": "Co-Innovation Between MSFT and UiPath to Jointly Accelerate Agentic Automation",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2073,7 +2073,7 @@
       "regEnabled": true
     },
     {
-      "id": "5gk0s1cmfoa",
+      "id": "2w2180n8wb3",
       "title": "Creating a Self-Sustaining Model That Embeds Agentic Into How People Work",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2086,7 +2086,7 @@
       "regEnabled": true
     },
     {
-      "id": "mj6epowplm",
+      "id": "b7p9n19wtoq",
       "title": "Creating an Integrated Ecosystem That Seamlessly Connects Your Organization ",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2099,7 +2099,7 @@
       "regEnabled": true
     },
     {
-      "id": "sjy48omir18",
+      "id": "g7oq0ty4fau",
       "title": "Demystifying Agentic AI, RPA & Intelligent Automation: What They Are, What to Build, When to Use Them, and How to Scale Beyond the POC",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2112,7 +2112,7 @@
       "regEnabled": true
     },
     {
-      "id": "svhsdyxww3",
+      "id": "0fufm0ikalc",
       "title": "FINS: Banking Meet-up",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2125,7 +2125,7 @@
       "regEnabled": true
     },
     {
-      "id": "gpr3oqiljos",
+      "id": "6zw9nlbcgyn",
       "title": "FINS: Credit Unions Meet-up",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2138,7 +2138,7 @@
       "regEnabled": true
     },
     {
-      "id": "v3vp8p0g4sr",
+      "id": "rodf7vlpyn",
       "title": "FINS: Life Insurance Meet-up",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2151,7 +2151,7 @@
       "regEnabled": true
     },
     {
-      "id": "x8cadr9r28l",
+      "id": "12nqwdriwsid",
       "title": "FINS: P&C Insurance Meet-up",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2164,7 +2164,7 @@
       "regEnabled": true
     },
     {
-      "id": "ggoizqenp4k",
+      "id": "yzcoh6vpbup",
       "title": "FINS: Wealth and Asset Management Meet-up",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2177,7 +2177,7 @@
       "regEnabled": true
     },
     {
-      "id": "5y51ih4l6bd",
+      "id": "kmi0bhlfmee",
       "title": "Fostering a Culture of Ai-Powered Innovation",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2190,7 +2190,7 @@
       "regEnabled": true
     },
     {
-      "id": "n05wjm3o7m",
+      "id": "ofx3zjyx2ze",
       "title": "From Chasing Orders to Closing Deals: Building Trusted Sales AI Agents",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2203,7 +2203,7 @@
       "regEnabled": true
     },
     {
-      "id": "1lrpy29ce0m",
+      "id": "vjh4bxa8z5",
       "title": "From Flowcharts to Free Will: The Rise of Autonomous Automation",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2216,7 +2216,7 @@
       "regEnabled": true
     },
     {
-      "id": "0si6svvpyvl",
+      "id": "4izzchbzzmr",
       "title": "How to Think—and Act—Like an AI-Native Business",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2229,7 +2229,7 @@
       "regEnabled": true
     },
     {
-      "id": "hko6vtewej",
+      "id": "ty1em6s8sn",
       "title": "Intelligent Quality Assurance: The New Rules in Test Automation",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2242,7 +2242,7 @@
       "regEnabled": true
     },
     {
-      "id": "2ezpn1tqv37",
+      "id": "3euj5lcbv6i",
       "title": "Measuring the Impact: Quantifying Agentic AI Use Cases",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2255,7 +2255,7 @@
       "regEnabled": true
     },
     {
-      "id": "ersxcthz9vi",
+      "id": "0g6373bww5fp",
       "title": "No Templates, No Tears: Explainable Gen-Doc Extraction",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2268,7 +2268,7 @@
       "regEnabled": true
     },
     {
-      "id": "rsnjfk8cmnl",
+      "id": "zdolcrg1i2",
       "title": "Seamless Cx: The Agentic Customer Journey Panel Discussion",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2281,7 +2281,7 @@
       "regEnabled": true
     },
     {
-      "id": "v84g93xoyoo",
+      "id": "7hu1zi24x96",
       "title": "Smart Finance Transformation: Practical Paths to AI-Driven Automation",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2294,7 +2294,7 @@
       "regEnabled": true
     },
     {
-      "id": "ch5ylz96wpn",
+      "id": "gov1fw4dvhs",
       "title": "Steps Towards Agentic Automation Community",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2307,7 +2307,7 @@
       "regEnabled": true
     },
     {
-      "id": "ofwc07vv2eq",
+      "id": "d1rtayfywzm",
       "title": "The Agentic Orchestrate: A CXO’s Blueprint for Governing a Hybrid Workforce of Human, Robots, and AI Agents.",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2320,7 +2320,7 @@
       "regEnabled": true
     },
     {
-      "id": "qrftjn2ytqg",
+      "id": "iv7fjsr85e",
       "title": "UiPath AI25 Winners Roundtable and Discussion",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2333,7 +2333,7 @@
       "regEnabled": true
     },
     {
-      "id": "dmbs0jsl3i6",
+      "id": "jd4xw205jq",
       "title": "UiPath AI25 Winners Roundtable and Discussion",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2346,7 +2346,7 @@
       "regEnabled": true
     },
     {
-      "id": "jg6yk45xib",
+      "id": "z87kyyduc9",
       "title": "UiPath AI25 Winners Roundtable and Discussion",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2359,7 +2359,7 @@
       "regEnabled": true
     },
     {
-      "id": "d9sjcein9qd",
+      "id": "fnv119hv80w",
       "title": "Uncovering Automation Gold: AI-Powered Discovery with UiPath Abstract",
       "track": "Roundtable",
       "day": "2025-10-01",
@@ -2372,7 +2372,7 @@
       "regEnabled": true
     },
     {
-      "id": "9pkd304bkyr",
+      "id": "jyck1sateqm",
       "title": "Unstructured Extraction: Tapping into New Data",
       "track": "Roundtable",
       "day": "2025-10-01",
